@@ -12,7 +12,6 @@ const Home = () => {
 
 
     return (
-        <div className='home-container'>
             <div className='home-button'>
                 {homeButton.map((button) =>
                     <Link to={{ pathname: `/${button.toLowerCase()}` }}>
@@ -20,7 +19,6 @@ const Home = () => {
                     </Link>
                 )}
             </div>
-        </div>
     )
 }
 

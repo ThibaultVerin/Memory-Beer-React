@@ -2,7 +2,7 @@ import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home'
 import PlayerInfo from './components/PlayerInfo/PlayerInfo';
-import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
+import MultiplayerInfo from './components/PlayerInfo/MultiplayerNumber';
 
 function App() {
   return (

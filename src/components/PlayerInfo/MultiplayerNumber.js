@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './MultiplayerInfo.scss'
+import './MultiplayerNumber.scss'
 
 const MultiplayerInfo = () => {
 
@@ -32,7 +32,6 @@ const MultiplayerInfo = () => {
     const numberPlayer = ['2', '3', '4'];
 
     const handleChange = (e) => {
-        console.log(parseInt(e.target.value))
         setPlayerNumber(parseInt(e.target.value))
     } 
 

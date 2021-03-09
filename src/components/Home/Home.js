@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.scss'
 
 const Home = () => {
@@ -14,7 +15,9 @@ const Home = () => {
         <div className='home-container'>
             <div className='home-button'>
                 {homeButton.map((button) =>
-                    <button type='button' onClick={handleClick}>{button}</button>
+                    <Link to={{ pathname: `/${button.toLowerCase()}` }}>
+                        <button type='button' onClick={handleClick}>{button}</button>
+                    </Link>
                 )}
             </div>
         </div>

@@ -7,7 +7,7 @@ const Home = () => {
     const homeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
 
     const handleClick = () => {
-        console.log('Breh')
+        
     }
 
 
@@ -15,7 +15,7 @@ const Home = () => {
             <div className='home-button'>
                 {homeButton.map((button) =>
                     <Link to={{ pathname: `/${button.toLowerCase()}` }}>
-                        <button type='button' onClick={handleClick}>{button}</button>
+                        <button type='button' onClick={history.pushState('/level-selection')}>{button}</button>
                     </Link>
                 )}
             </div>

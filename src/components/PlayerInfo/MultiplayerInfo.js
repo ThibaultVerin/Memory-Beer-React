@@ -6,16 +6,19 @@ import { NumberUserContext }  from '../../contexts/NumberUserContext';
 const MultuplayerInfo = () => {
 
     const [playerName, setPlayerName] = useState('');
+    const [actualUser, setActualUser] = useState(1)
     const { numberUserInfo, setNumberUserInfo } = useContext(NumberUserContext);
 
     const handleChange = (e) => {
         setPlayerName(e.target.value)
     }
 
+    console.log(numberUserInfo)
+
     return (
         <div className='singlePlayer-info'>
             <div className='singlePlayer-name'>
-                <h3>Player Name</h3>
+                <h3>{actualUser} Player Name</h3>
                 <input type='text' name='player-name' placeholder='enter your name' onChange={(e) => handleChange(e)}/>
             </div>
             <div className='singlePlayer-button'>

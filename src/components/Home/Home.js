@@ -8,8 +8,21 @@ const Home = () => {
     const homeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
     const { setNumberUserInfo } = useContext(NumberUserContext);
 
-    const handleClick = () => {
-        setNumberUserInfo(2);
+    const handleClick = (e) => {
+
+        switch(e.target.value) {
+            case 'Single-Player' :
+                setNumberUserInfo(1);
+                break;
+            case 'Multi-Player':
+                setNumberUserInfo(2);
+                break;
+            case 'Tutorial':
+                setNumberUserInfo(0);
+                break;
+            default:
+                setNumberUserInfo(0);
+        }
     }
 
 
@@ -17,7 +30,7 @@ const Home = () => {
             <div className='home-button'>
                 {homeButton.map((button) =>
                     <Link to={{ pathname: `/${button.toLowerCase()}` }}>
-                        <button type='button' onClick={handleClick}>{button}</button>
+                        <input key={button} type='button' value={button} onClick={(e) => handleClick(e)}/>
                     </Link>
                 )}
             </div>

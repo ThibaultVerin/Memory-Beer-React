@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './MultiplayerInfo.scss'
+import { NumberUserContext }  from '../../contexts/NumberUserContext';
 
 const MultuplayerInfo = () => {
 
     const [playerName, setPlayerName] = useState('');
+    const { numberUserInfo, setNumberUserInfo } = useContext(NumberUserContext);
 
     const handleChange = (e) => {
         setPlayerName(e.target.value)

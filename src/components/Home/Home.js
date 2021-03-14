@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss'
+import { NumberUserContext }  from '../../contexts/NumberUserContext';
 
 const Home = () => {
 
     const homeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
+    const { setNumberUserInfo } = useContext(NumberUserContext);
 
     const handleClick = () => {
-        console.log('Breh')
+        setNumberUserInfo(2);
     }
 
 

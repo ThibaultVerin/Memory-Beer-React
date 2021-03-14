@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home/Home'
+import PlayerInfo from './components/PlayerInfo/PlayerInfo';
+import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
+import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
+import { UserProvider }  from './contexts/UserContext';
+import { NumberUserProvider }  from './contexts/NumberUserContext';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+    <NumberUserProvider>
+      <Router>
+        <div className="App">
+        <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/single-player' component={PlayerInfo} />
+            <Route exact path='/multi-player' component={MultiplayerNumber} />
+            <Route exact path='/multi-info' component={MultiplayerInfo} />
+          </Switch>
+        </div>
+      </Router>
+     </NumberUserProvider>
+    </UserProvider>
   );
 }
 

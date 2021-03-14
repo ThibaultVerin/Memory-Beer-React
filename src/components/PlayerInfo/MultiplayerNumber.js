@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './MultiplayerNumber.scss'
+import { NumberUserContext }  from '../../contexts/NumberUserContext';
 
 const MultiplayerInfo = () => {
 
-    const [playerNumber, setPlayerNumber] = useState(2);
     const numberPlayer = ['2', '3', '4'];
+    const { setNumberUserInfo } = useContext(NumberUserContext);
 
     const handleChange = (e) => {
-        setPlayerNumber(parseInt(e.target.value))
+        setNumberUserInfo(parseInt(e.target.value))
     } 
 
     return (
@@ -16,7 +17,7 @@ const MultiplayerInfo = () => {
             <h3>Choose the number of players</h3>
             <select name='number-player' onChange={(e) => handleChange(e)}>
                 {numberPlayer.map((number) => 
-                    <option value={number} onChange={(e) => handleChange(e)}>{number} Players</option>
+                    <option key={number} value={number}>{number} Players</option>
                 )}
             </select>
             <div className='multiPlayer-button'>

@@ -1,31 +1,67 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './MultiplayerInfo.scss'
+import React, { useContext, useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
+import './MultiplayerInfo.scss';
+import { UserContext }  from '../../contexts/UserContext';
+import { NumberUserContext }  from '../../contexts/NumberUserContext';
 
-const MultuplayerInfo = () => {
+const MultiplayerInfo = () => {
 
+    const history = useHistory();
+
+    const { setUserInfo } = useContext(UserContext);
+    const { numberUserInfo } = useContext(NumberUserContext);
+
+    const [actualUser, setActualUser] = useState(1);
     const [playerName, setPlayerName] = useState('');
 
     const handleChange = (e) => {
-        setPlayerName(e.target.value)
+        setPlayerName(e.target.value);
     }
 
+    const handleSubmit = () => {
+        if (actualUser === numberUserInfo) {
+            history.push('/multi-board', { from: 'MultiplayerInfo' })
+        }
+        setUserInfo((userInfo) => [
+            ...userInfo,{
+                id: actualUser,
+                name: playerName,
+            },
+        ]);
+        setActualUser(actualUser + 1);
+    }
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit();
+        }
+    }
+
+    useEffect(() => {
+        setPlayerName('');
+    }, [actualUser]);
+
     return (
-        <div className='singlePlayer-info'>
-            <div className='singlePlayer-name'>
-                <h3>Player Name</h3>
-                <input type='text' name='player-name' placeholder='enter your name' onChange={(e) => handleChange(e)}/>
+        
+        <div className='multiPlayer-info'>
+            <div className='multiPlayer-name'>
+                <h3>{actualUser} Player Name</h3>
+                <input 
+                    type='text'
+                    name='player-name'
+                    value={playerName}
+                    placeholder='Enter your name' 
+                    onChange={(e) => handleChange(e)} 
+                    onKeyDown={handleKeyDown}
+                />
             </div>
-            <div className='singlePlayer-button'>
-                <Link to='/'>
-                    <button type='button'>Back/resetidea</button>
-                </Link>
-                <Link to='/single-board'>
-                    <button type='button'>Enter</button>
-                </Link>
+            <div className='multiPlayer-button'>
+                    <button type='button' onClick={() => history.push('/')}>Back/resetidea</button>
+                    <input type='submit' value='Enter' onClick={() => handleSubmit()}/>
             </div>
         </div>
+        
     )
 }
 
-export default MultuplayerInfo;
+export default MultiplayerInfo;

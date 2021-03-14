@@ -28,9 +28,9 @@ const Home = () => {
 
     return (
             <div className='home-button'>
-                {homeButton.map((button) =>
-                    <Link to={{ pathname: `/${button.toLowerCase()}` }}>
-                        <input key={button} type='button' value={button} onClick={(e) => handleClick(e)}/>
+                {homeButton.map((button, index) =>
+                    <Link to={{ pathname: `/${button.toLowerCase()}` }} key={index}>
+                        <input type='button' value={button} onClick={(e) => handleClick(e)}/>
                     </Link>
                 )}
             </div>

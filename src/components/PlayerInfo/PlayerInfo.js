@@ -29,22 +29,22 @@ const PlayerInfo = () => {
     return (
         
         <div className='singlePlayer-info'>
-        <form onSubmit={() => handleSubmit()}>
-            <div className='singlePlayer-name'>
-                <h3>Name</h3>
-                <input 
-                    type='text' 
-                    name='player-name' 
-                    placeholder='enter your name' 
-                    required="required"
-                    onChange={(e) => handleChange(e)}
-                    onKeyDown={handleKeyDown}
-                />
-            </div>
-            <div className='singlePlayer-button'>
-                    <button type='button' onClick={() => history.push('/')}>Back/resetidea</button>
-                    <input type='submit' value='Enter' onClick={() => history.push('/single-board')}/>
-            </div>
+            <form onSubmit={() => handleSubmit()}>
+                <div className='singlePlayer-name'>
+                    <h3>Name</h3>
+                    <input 
+                        type='text' 
+                        name='player-name' 
+                        placeholder='Enter your name' 
+                        required
+                        onChange={(e) => handleChange(e)}
+                        onKeyDown={handleKeyDown}
+                    />
+                </div>
+                <div className='singlePlayer-button'>
+                        <button type='button' onClick={() => history.push('/')}>Home</button>
+                        <input type='submit' value='Play' onClick={() => history.push('/single-board')}/>
+                </div>
             </form>
         </div>       
     )

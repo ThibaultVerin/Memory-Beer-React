@@ -43,8 +43,8 @@ const MultiplayerInfo = () => {
 
     return (
         
-        <div className='singlePlayer-info'>
-            <div className='singlePlayer-name'>
+        <div className='multiPlayer-info'>
+            <div className='multiPlayer-name'>
                 <h3>{actualUser} Player Name</h3>
                 <input 
                     type='text'
@@ -55,7 +55,7 @@ const MultiplayerInfo = () => {
                     onKeyDown={handleKeyDown}
                 />
             </div>
-            <div className='singlePlayer-button'>
+            <div className='multiPlayer-button'>
                     <button type='button' onClick={() => history.push('/')}>Back/resetidea</button>
                     <input type='submit' value='Enter' onClick={() => handleSubmit()}/>
             </div>

@@ -17,7 +17,7 @@ const MultiplayerInfo = () => {
             <h3>Choose the number of players</h3>
             <select name='number-player' onChange={(e) => handleChange(e)}>
                 {numberPlayer.map((number) => 
-                    <option value={number}>{number} Players</option>
+                    <option key={number} value={number}>{number} Players</option>
                 )}
             </select>
             <div className='multiPlayer-button'>

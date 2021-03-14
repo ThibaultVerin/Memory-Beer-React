@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import './PlayerInfo.scss';
 import { UserContext }  from '../../contexts/UserContext';
 
 const PlayerInfo = () => {
 
+    const history = useHistory();
+
     const { setUserInfo } = useContext(UserContext);
+    
     const [playerName, setPlayerName] = useState('');
 
     const handleChange = (e) => {
@@ -13,26 +16,37 @@ const PlayerInfo = () => {
     }
 
     const handleSubmit = () => {
-        setUserInfo({name: playerName})
+        setUserInfo({id: 1, name: playerName})
     }
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit();
+        }
+    }
+
 
     return (
         
         <div className='singlePlayer-info'>
+        <form onSubmit={() => handleSubmit()}>
             <div className='singlePlayer-name'>
                 <h3>Name</h3>
-                <input type='text' name='player-name' placeholder='enter your name' onChange={(e) => handleChange(e)}/>
+                <input 
+                    type='text' 
+                    name='player-name' 
+                    placeholder='enter your name' 
+                    required="required"
+                    onChange={(e) => handleChange(e)}
+                    onKeyDown={handleKeyDown}
+                />
             </div>
             <div className='singlePlayer-button'>
-                <Link to='/'>
-                    <button type='button'>Back/resetidea</button>
-                </Link>
-                <Link to='/single-board'>
-                    <button type='submit' onClick={() => handleSubmit()}>Enter</button>
-                </Link>
+                    <button type='button' onClick={() => history.push('/')}>Back/resetidea</button>
+                    <input type='submit' value='Enter' onClick={() => history.push('/single-board')}/>
             </div>
-        </div>
-        
+            </form>
+        </div>       
     )
 }
 

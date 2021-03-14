@@ -2,13 +2,18 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.scss'
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { UserContext }  from '../../contexts/UserContext';
 
 const Home = () => {
 
-    const homeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
+    const { setUserInfo } = useContext(UserContext);
     const { setNumberUserInfo } = useContext(NumberUserContext);
 
+    const homeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
+
     const handleClick = (e) => {
+
+        setUserInfo([]);
 
         switch(e.target.value) {
             case 'Single-Player' :
@@ -29,8 +34,12 @@ const Home = () => {
     return (
             <div className='home-button'>
                 {homeButton.map((button, index) =>
-                    <Link to={{ pathname: `/${button.toLowerCase()}` }} key={index}>
-                        <input type='button' value={button} onClick={(e) => handleClick(e)}/>
+                    <Link to={{ pathname: `/${button.toLowerCase()}` }}>
+                        <input 
+                            key={index}
+                            type='button'
+                            value={button}
+                            onClick={(e) => handleClick(e)}/>
                     </Link>
                 )}
             </div>

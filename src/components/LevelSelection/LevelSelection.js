@@ -7,8 +7,12 @@ const LevelSelection = () => {
 
     return (
         <div className='home-button'>
-        {levelButton.map((button) =>
-                <button type='button'>{button}</button>
+        {levelButton.map((button, index) =>
+                <input 
+                    key={index}
+                    type='button'
+                    value={button}
+                />
         )}
     </div>
     )

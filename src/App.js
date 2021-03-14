@@ -5,11 +5,13 @@ import PlayerInfo from './components/PlayerInfo/PlayerInfo';
 import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
 import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
 import { UserProvider }  from './contexts/UserContext';
+import { NumberUserProvider }  from './contexts/NumberUserContext';
 
 function App() {
 
   return (
     <UserProvider>
+    <NumberUserProvider>
       <Router>
         <div className="App">
         <Switch>
@@ -20,6 +22,7 @@ function App() {
           </Switch>
         </div>
       </Router>
+     </NumberUserProvider>
     </UserProvider>
   );
 }

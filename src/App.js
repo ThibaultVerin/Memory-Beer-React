@@ -7,11 +7,13 @@ import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
 import LevelSelection from './components/LevelSelection/LevelSelection';
 import { UserProvider }  from './contexts/UserContext';
 import { NumberUserProvider }  from './contexts/NumberUserContext';
+import { LevelProvider }  from './contexts/LevelContext';
 
 function App() {
 
   return (
     <UserProvider>
+    <LevelProvider>
     <NumberUserProvider>
       <Router>
         <div className="App">
@@ -25,6 +27,7 @@ function App() {
         </div>
       </Router>
      </NumberUserProvider>
+     </LevelProvider>
     </UserProvider>
   );
 }

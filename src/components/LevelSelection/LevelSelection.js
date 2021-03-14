@@ -26,7 +26,7 @@ const LevelSelection = () => {
     console.log(numberUserInfo);
 
     return (
-        <div className='home-button'>
+        <div className='level-selection-button'>
         {levelButton.map((button, index) =>
                 <input 
                     key={index}

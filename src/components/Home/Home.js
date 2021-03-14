@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
+import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './Home.scss'
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
 import { UserContext }  from '../../contexts/UserContext';
 
 const Home = () => {
+
+    const history = useHistory();
 
     const { setUserInfo } = useContext(UserContext);
     const { setNumberUserInfo } = useContext(NumberUserContext);
@@ -34,7 +37,7 @@ const Home = () => {
     return (
             <div className='home-button'>
                 {homeButton.map((button, index) =>
-                    <Link to={{ pathname: `/${button.toLowerCase()}` }}>
+                    <Link to={{ pathname: '/select-level' }}>
                         <input 
                             key={index}
                             type='button'

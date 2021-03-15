@@ -40,7 +40,7 @@ const BurgerMenu = () => {
                 <div className='burger-cross' onClick={() => handleClick()}/>
                 <div className='burger-link'>
                     {burgerLink.map((link) => 
-                        <button type='button' onClick={(e) => handleLink(e)}>{link}</button>
+                        <input type='button' value={link} onClick={(e) => handleLink(e)}/>
                     )}
                 </div>
             </div>

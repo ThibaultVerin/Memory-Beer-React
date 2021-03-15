@@ -9,11 +9,14 @@ const SingleBoard = () => {
 
     const { userInfo } = useContext(UserContext);
 
-    //const [userPoint, setUserPoint] = useState(0);
+    const [userPoint, setUserPoint] = useState(0);
 
     return (
-        <div>
-            {userInfo.id}
+        <div className='single-board-container'>
+            {userInfo.name} : {userPoint}
+            <div className='card-container'>
+
+            </div>
         </div>
     )
 }

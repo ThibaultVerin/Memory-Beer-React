@@ -1,0 +1,30 @@
+@import '../../Variables';
+
+.footer-container {
+    height: 12vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: $fourth-color;
+    input {
+        height: 100%;
+        background-color: $fourth-color;
+        color:$third-color;
+        font-family: $primary-font-family;
+        font-size: 26px;
+        font-weight: bolder;
+        border: none;
+        padding: 0;
+    }
+    input:first-child {
+        width: 50%;
+    }
+    input:nth-child(2) {
+        height: 15vh;
+        width: 30%;
+        position: absolute;
+        left:35%;
+        bottom: 2%;
+        border-radius: 50%;
+    }
+}

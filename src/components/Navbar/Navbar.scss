@@ -2,7 +2,7 @@
 
 .navbar-body {
     height: 15vh;
-    width: 85%;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -11,8 +11,12 @@
     border: none;
     font-family: $secondary-font-family;
     font-weight: 900;
-    padding-left: 5%;
     img {
-        width: 70px;
+        width: 50px;
+        padding-left: 5%;
+    }
+    h1 {
+        padding-left: 10%;
+        font-size: 45px;
     }
 }

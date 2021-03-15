@@ -2,6 +2,7 @@ import './App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 import PlayerInfo from './components/PlayerInfo/PlayerInfo';
 import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
 import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
@@ -30,6 +31,7 @@ function App() {
               <Route exact path='/select-level' component={LevelSelection} />
             </Switch>
           </div>
+         <Footer /> 
       </Router>
      </NumberUserProvider>
      </LevelProvider>

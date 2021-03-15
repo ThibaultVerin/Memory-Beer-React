@@ -1,0 +1,18 @@
+@import '../../Variables';
+
+.navbar-body {
+    height: 15vh;
+    width: 85%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $primary-color;
+    color: $third-color;
+    border: none;
+    font-family: $secondary-font-family;
+    font-weight: 900;
+    padding-left: 5%;
+    img {
+        width: 70px;
+    }
+}

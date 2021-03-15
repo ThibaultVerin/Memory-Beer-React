@@ -15,10 +15,7 @@ const Footer = () => {
             case 'Home' :
                 history.push('/');
                 break;
-            case 'Multi-Player':
-                history.push('/');
-                break;
-            case 'Tutorial':
+            case 'Beer':
                 history.push('/');
                 break;
             default:
@@ -29,9 +26,9 @@ const Footer = () => {
     return (
         <div className='footer-container'> 
             {button.map((button) => 
-                <input key={button} type='button' value={button} onClick={(e) => handleClick(e)} />
+                <input key={button} className='footer-button' type='button' value={button} onClick={(e) => handleClick(e)} />
             )}
-            <div className='burger-menu'>
+            <div className='burger-menu-footer'>
                 <BurgerMenu />
             </div>
         </div>

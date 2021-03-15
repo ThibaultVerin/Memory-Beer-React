@@ -12,6 +12,7 @@ const BurgerMenu = () => {
 
     const handleClick = () => {
         setBurgerOpen(!burgerOpen);
+        console.log('breh');
     }
 
     const handleLink = (e) => {
@@ -47,7 +48,7 @@ const BurgerMenu = () => {
     }
 
     return (
-        <>
+        <div>
             {burgerOpen ? <div>{BurgerMenuOpen()}</div> : 
                 <div className='burger-menu' onClick={() => handleClick()}>
                     <div className='burger-line'/>
@@ -55,7 +56,7 @@ const BurgerMenu = () => {
                     <div className='burger-line'/>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

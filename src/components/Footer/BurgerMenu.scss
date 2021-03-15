@@ -1,7 +1,7 @@
 @import '../../Variables';
 
 .burger-menu {
-    width: 60%;
+    width: 50%;
     background-color: $fourth-color;
     display: flex;
     flex-direction: column;
@@ -9,11 +9,11 @@
     align-items: center;
     padding-left: 20%;
     .burger-line {
-        width: 50%;
-        height: 6px;
+        width: 45px;
+        height: 4px;
         background-color: $third-color;
         border-radius: 10px;
-        margin: 5px 0;
+        margin: 4px 0;
     }
 }
 
@@ -49,7 +49,7 @@
         right: 12%;
         &::after {
             content: '';
-            height: 60px;
+            height: 50px;
             border-left: 6px solid $primary-color;
             border-radius: 5px;
             position: absolute;
@@ -57,7 +57,7 @@
         }
         &::before {
             content: '';
-            height: 60px;
+            height: 50px;
             border-left: 6px solid $primary-color;
             border-radius: 5px;
             position: absolute;

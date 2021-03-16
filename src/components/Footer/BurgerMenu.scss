@@ -1,5 +1,20 @@
 @import '../../Variables';
 
+.burger-menu-container {
+    width: 50%;
+    background-color: $fourth-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: outset 5px rgba(255, 255, 255, 0.11);
+    border-top-right-radius: 10px;
+    box-shadow: 5px -59px $primary-color;
+    &:active {
+       box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
 .burger-menu {
     width: 50%;
     background-color: $fourth-color;
@@ -15,6 +30,71 @@
         border-radius: 10px;
         margin: 4px 0;
     }
+}
+.burger-menu-closing {
+    height: 100vh;
+    width: 100%;
+    background-color: $third-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation-duration: 1.5s;
+    animation-name: slideout;
+    @keyframes slideout {
+        from {
+          margin-left: 0;
+          width: 100%;
+        }
+      
+        to {
+          margin-left: 100%;
+          width: 0;
+        }
+      }
+
+    .burger-cross {
+        background: $third-color;
+        position: absolute;
+        top: 20px;
+        right: 12%;
+        &::after {
+            content: '';
+            height: 50px;
+            border-left: 6px solid $primary-color;
+            border-radius: 5px;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+        &::before {
+            content: '';
+            height: 50px;
+            border-left: 6px solid $primary-color;
+            border-radius: 5px;
+            position: absolute;
+            transform: rotate(-45deg);
+        }
+    }
+    .burger-link {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        input {
+            font-family: $primary-font-family;
+            font-weight: bolder;
+            background: transparent;
+            color: $primary-color;
+            font-size: 40px;
+            margin: 0;
+            border: none;
+        }
+    }  
 }
 
 .burger-menu-open {
@@ -81,4 +161,10 @@
             border: none;
         }
     }  
+}
+
+@media screen and (min-width: 768px) {
+    .burger-menu-container {
+        display: none;
+    }
 }

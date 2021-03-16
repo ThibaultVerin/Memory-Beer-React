@@ -1,6 +1,10 @@
 @import '../../Variables';
 
-.footer-container {
+.footer-container-desktop {
+    display: none;
+}
+
+.footer-container-mobile {
     height: 10vh;
     width: 100%;
     display: flex;
@@ -26,11 +30,14 @@
             }
         }
         &:nth-child(2) {
-            height: 13vh;
-            width: 30vw;
+            height: 86px;
+            width: 112px;
             position: absolute;
-            left:35%;
-            bottom: 3%;
+            left: 0; 
+            right: 0;
+            bottom: 2%; 
+            margin-left: auto; 
+            margin-right: auto; 
             border-radius: 50%;
             &:active {
                 box-shadow: 0 5px rgba(0, 0, 0, 0.2);
@@ -38,19 +45,25 @@
             }
         }
     }
-    .burger-menu-footer {
-        width: 50%;
-        background-color: $fourth-color;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: outset 5px rgba(255, 255, 255, 0.11);
-        border-top-right-radius: 10px;
-        box-shadow: 5px -59px $primary-color;
-        &:active {
-            box-shadow: 0 5px rgba(0, 0, 0, 0.2);
-            transform: translateY(4px);
+}
+
+@media screen and (min-width: 532px) {
+    .footer-container {
+        .footer-button {
+            &:nth-child(2) {
+                height: 95px;
+                width: 130px;
+                bottom: 2%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .footer-container-mobile {
+        background-color: $primary-color;
+        .footer-button {
+            display: none;
         }
     }
 }

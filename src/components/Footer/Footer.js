@@ -24,13 +24,11 @@ const Footer = () => {
 
 
     return (
-        <div className='footer-container'> 
+        <div className='footer-container-mobile'> 
             {button.map((button) => 
                 <input key={button} className='footer-button' type='button' value={button} onClick={(e) => handleClick(e)} />
             )}
-            <div className='burger-menu-footer'>
-                <BurgerMenu />
-            </div>
+            <BurgerMenu />
         </div>
     )
 }

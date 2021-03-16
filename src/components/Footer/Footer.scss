@@ -1,9 +1,5 @@
 @import '../../Variables';
 
-.footer-container-desktop {
-    display: none;
-}
-
 .footer-container-mobile {
     height: 10vh;
     width: 100%;
@@ -45,6 +41,9 @@
             }
         }
     }
+    .footer-container-desktop {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 532px) {
@@ -61,9 +60,38 @@
 
 @media screen and (min-width: 768px) {
     .footer-container-mobile {
+        height: 12vh;
         background-color: $primary-color;
+        display: flex;
+        justify-content:center;
         .footer-button {
             display: none;
+        }
+        .footer-container-desktop {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .footer-desktop-img {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-bottom: 10px;
+                img {
+                    width: 35px;
+                    height: 35px;
+                    margin: 0 20px;
+                    cursor: pointer;
+                }
+
+            }
+            p {
+                color: $third-color;
+                font-family: $primary-font-family;
+                font-size: 16px;
+                margin: 0;
+                padding-bottom: 5px;
+            }
         }
     }
 }

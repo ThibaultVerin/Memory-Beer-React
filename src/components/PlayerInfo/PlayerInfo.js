@@ -17,6 +17,7 @@ const PlayerInfo = () => {
 
     const handleSubmit = () => {
         setUserInfo({id: 1, name: playerName})
+        history.push('/single-board')
     }
 
     const handleKeyDown = (e) => {
@@ -43,7 +44,7 @@ const PlayerInfo = () => {
                 </div>
                 <div className='singlePlayer-button'>
                         <button type='button' onClick={() => history.push('/')}>Home</button>
-                        <input type='submit' value='Play' onClick={() => history.push('/single-board')}/>
+                        <input type='submit' value='Play' onClick={() => handleSubmit}/>
                 </div>
             </form>
         </div>       

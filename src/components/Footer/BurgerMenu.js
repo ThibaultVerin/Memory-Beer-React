@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import './BurgerMenu.scss';
-import logo from '../../data/pictures/Logo.png';
 
 const BurgerMenu = () => {
 
     const history = useHistory();
 
     const [burgerOpen, setBurgerOpen] = useState(false);
+    const [burgerClosing, setBurgerClosing] = useState(false);
 
     const burgerLink = ['Home', 'Ranking', 'About', 'Settings'];
 
-    const handleClick = () => {
-        setBurgerOpen(!burgerOpen);
+    const handleClosing = () => {
+        setBurgerClosing(!burgerClosing);
+        setTimeout(() => {
+            setBurgerOpen(!burgerOpen);
+            setBurgerClosing(false);
+          }, 1400);
     }
 
     const handleLink = (e) => {
+        
         switch(e.target.value) {
             case 'Home' :
                 history.push('/');
@@ -31,16 +36,16 @@ const BurgerMenu = () => {
             break;
             default:
         }
-        handleClick();
+        handleClosing();
     } 
 
     const BurgerMenuOpen = () => {
         return (
-            <div className='burger-menu-open'>
-                <div className='burger-cross' onClick={() => handleClick()}/>
+            <div className={burgerClosing ? 'burger-menu-closing' : 'burger-menu-open'}>
+                <div className='burger-cross' onClick={() => handleClosing()}/>
                 <div className='burger-link'>
                     {burgerLink.map((link) => 
-                        <button type='button' onClick={(e) => handleLink(e)}>{link}</button>
+                        <input type='button' value={link} onClick={(e) => handleLink(e)}/>
                     )}
                 </div>
             </div>
@@ -48,15 +53,15 @@ const BurgerMenu = () => {
     }
 
     return (
-        <>
-            {burgerOpen ? <div>{BurgerMenuOpen()}</div> : 
-                <div className='burger-menu' onClick={() => handleClick()}>
+        <div className='burger-menu-container'>
+            {burgerOpen ? BurgerMenuOpen() : 
+                <div className='burger-menu' onClick={() => setBurgerOpen(!burgerOpen)}>
                     <div className='burger-line'/>
                     <div className='burger-line'/>
                     <div className='burger-line'/>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

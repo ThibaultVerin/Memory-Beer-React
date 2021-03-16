@@ -1,12 +1,17 @@
 @import 'Variables';
 
 .App {
-  height: 83.9vh;
+  height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   background-color: $primary-color;
-  padding-top: 2%;
+}
+
+@media screen and (min-width: 768px) {
+  .App {
+    height: 73vh;
+  }
 }
 

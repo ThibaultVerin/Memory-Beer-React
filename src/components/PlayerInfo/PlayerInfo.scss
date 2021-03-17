@@ -49,6 +49,10 @@
                 padding: 15px;
                 outline: none;
                 box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                &:focus {
+                    transition-duration: 0.3s;
+                    transform: scale(1.1);
+                }
             }
         }
         .singlePlayer-button {
@@ -67,7 +71,12 @@
                 border: solid;
                 border-radius: 15px;
                 box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                outline: none;
                 cursor: pointer;
+                &:hover {
+                    transition-duration: 0.3s;
+                    transform: scale(1.1);
+                }
                 &:active {
                     box-shadow: 0 5px rgba(0, 0, 0, 0.2);
                     transform: translateY(4px);
@@ -78,34 +87,25 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 532px) {
     .singlePlayer-info {
-        width: 60%;
-        height: 50%;
-        .singlePlayer-name {
-            height: 40%;
-            input {
-                height: 20px;
-            }
-        }
-        .singlePlayer-button {
-            button, input {
-                height: 50px;
-                width: 90px;
-                font-size: 17px;
+        form {
+            .singlePlayer-button {
+                width: 380px;
             }
         }
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
     .singlePlayer-info {
-        width: 45%;
-        height: 50%;
+        width: 625px;
         form {
-            .singlePlayer-name {
-                input {
-                    width: 70%;
+            .singlePlayer-button {
+                width: 380px;
+                button, input {
+                    height: 60px;
+                    width: 115px;
                 }
             }
         }

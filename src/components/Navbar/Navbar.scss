@@ -17,14 +17,23 @@
         position: absolute;
         top: 12px;
         left: 15px;
+        backface-visibility: hidden;
+        cursor: pointer;
     }
     .navbar-title {
         width: 100%;
         text-align: center;
         padding-left: 25px;
         h1 {
+            width: 70%;
             font-size: 45px;
             margin: 0%;
+            margin-left: 15%;
+            cursor:pointer;
+            &:hover {
+                transition-duration: 0.3s;
+                transform: scale(1.1);
+            }
         }
     }
     .navbar-burger{
@@ -47,7 +56,7 @@
 
     .navbar-body {
         .navbar-title {
-            width: 35%;
+            width: 33%;
             h1 {
                 font-size: 50px;
             }

@@ -30,9 +30,9 @@ const Navbar = () => {
 
     return (
         <div className='navbar-body'>
-            <img src={logo} alt='logo'/>
+            <img src={logo} alt='logo' onClick={() => history.push('/')}/>
             <div className='navbar-title'>
-                <h1>Memory Beer</h1>
+                <h1 onClick={() => history.push('/')}>Memory Beer</h1>
             </div>
             <div className='navbar-burger'>
                 <BurgerMenu />

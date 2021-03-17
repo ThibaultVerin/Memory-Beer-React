@@ -9,7 +9,7 @@ const LevelSelection = () => {
 
     const history = useHistory();
 
-    const { levelSelected, setLevelSelected } = useContext(LevelContext);
+    const { setLevelSelected } = useContext(LevelContext);
     const { numberUserInfo } = useContext(NumberUserContext);
 
     const handleClick = (e) => {
@@ -20,9 +20,6 @@ const LevelSelection = () => {
             history.push('/multi-player')
         }
     }
-
-    console.log(levelSelected);
-    console.log(numberUserInfo);
 
     return (
         <div className='level-selection-button'>

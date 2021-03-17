@@ -24,9 +24,9 @@ const Footer = () => {
 
     return (
         <div className='footer-container-mobile'> 
-            {FooterButton.map((button) => 
+            {FooterButton.map((button, index) => 
                 <input 
-                    key={button} 
+                    key={index} 
                     className='footer-button' 
                     type='button' value={button} 
                     onClick={(e) => handleClick(e)}
@@ -35,11 +35,12 @@ const Footer = () => {
             <BurgerMenu />
             <div className='footer-container-desktop'>
                 <div className='footer-desktop-img'>
-                    {Icon.map((icon) => 
+                    {Icon.map((icon, index) => 
                         <a 
                             target="_blank"
                             rel="noopener noreferrer"
                             href={icon.url}
+                            key={index}
                         >
                             <img 
                                 src={icon.src} 

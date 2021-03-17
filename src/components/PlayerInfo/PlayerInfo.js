@@ -35,7 +35,7 @@ const PlayerInfo = () => {
         
         <div className='singlePlayer-info'>
             <form onSubmit={() => handleSubmit()}>
-            <p>{numberUserInfo === 2 ? 'Multi player mode' : 'Single player |'} {levelSelected} mode</p>
+                <p>{numberUserInfo >= 2 ? 'Multi player mode' : 'Single player |'} {levelSelected} mode</p>
                 <div className='singlePlayer-name'>
                     <h1>Name :</h1>
                     <input 
@@ -49,7 +49,7 @@ const PlayerInfo = () => {
                 </div>
                 <div className='singlePlayer-button'>
                         <button type='button' onClick={() => history.push('/')}>Home</button>
-                        <input type='submit' value='Play' onClick={() => handleSubmit}/>
+                        <input type='submit' value='Play' onClick={() => handleSubmit()}/>
                 </div>
             </form>
         </div>       

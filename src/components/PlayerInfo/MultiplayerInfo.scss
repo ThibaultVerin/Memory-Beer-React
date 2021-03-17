@@ -2,7 +2,7 @@
 
 .multiPlayer-info {
     width: 80%;
-    height: 40%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -11,27 +11,48 @@
     color: $third-color;
     font-family: $primary-font-family;
     font-size: 22px;
+    border: solid;
     border-radius: 15px;
     box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-    margin-top: 10vh;
     padding: 20px 0;
+    margin-bottom: 70px;
+    .multiPlayer-form {
+        height: 95%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 15px;
+        p {
+            height: 10%;
+            font-weight: bold;
+            margin: 0;
+        }
         .multiPlayer-name {
-            height: 45%;
+            height: 48%;
             width: 80%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
-            h3 {
+            h1 {
                 margin: 0;
                 font: bolder;
             }
             input {
                 width: 80%;
+                height: 20%;
                 border: none;
-                border-radius: 5px;
-                padding: 10px;
+                border-radius: 20px;
+                padding: 15px;
+                outline: none;
+                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                &:focus {
+                    transition-duration: 0.3s;
+                    transform: scale(1.1);
+                }
             }
         }
         .multiPlayer-button {
@@ -40,52 +61,52 @@
             justify-content: space-around;
             margin-top: 20px;
             button, input {
-                height: 35px;
-                width: 80px;
+                height: 50px;
+                width: 100px;
                 background-color: $fourth-color;
                 color: $third-color;
                 font-weight: bolder;
-                font-size: 15px;
-                border: none;
-                border-radius: 5px;
+                font-family: $primary-font-family;
+                font-size: 25px;
+                border: solid;
+                border-radius: 15px;
+                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                outline: none;
                 cursor: pointer;
+                &:hover {
+                    transition-duration: 0.3s;
+                    transform: scale(1.1);
+                }
                 &:active {
                     box-shadow: 0 5px rgba(0, 0, 0, 0.2);
                     transform: translateY(4px);
                 }
     
             }
+        }
+    }
+}
+
+@media screen and (min-width: 532px) {
+    .multiPlayer-info {
+        .multiPlayer-form {
+            .multiPlayer-button {
+                width: 380px;
+            }
+        }
     }
 }
 
 @media screen and (min-width: 768px) {
     .multiPlayer-info {
-        width: 60%;
-        height: 50%;
-        .multiPlayer-name {
-            height: 40%;
-            input {
-                height: 20px;
-            }
-        }
-        .multiPlayer-button {
-            button, input {
-                height: 50px;
-                width: 90px;
-                font-size: 17px;
+        width: 625px;
+        .multiPlayer-form {
+            .multiPlayer-button{
+                button, input {
+                    height: 60px;
+                    width: 115px;
+                }
             }
         }
     }
 }
-
-// @media screen and (min-width: 1024px) {
-//     .singlePlayer-info {
-//         width: 45%;
-//         height: 50%;
-//         .singlePlayer-name {
-//             input {
-//                 width: 70%;
-//             }
-//         }
-//     }
-// }

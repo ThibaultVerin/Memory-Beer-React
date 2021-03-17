@@ -1,25 +1,12 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 import './Footer.scss';
-import BurgerMenu from '../Footer/BurgerMenu';
-import linkedin from '../../data/pictures/linkedin.png';
-import github from '../../data/pictures/github.png';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { Icon, FooterButton } from '../../data/LocalData';
 
 const Footer = () => {
 
     const history = useHistory();
-
-    const button = ['Home', 'Beer'];
-    const icon = [{
-        name: 'github',
-        src: github,
-        url:'https://github.com/ThibaultVerin'
-     },
-     {
-        name: 'linkedin',
-        src: linkedin,
-        url:'https://www.linkedin.com/in/thibaultverin/'
-     }];
 
     const handleClick = (e) => {
 
@@ -34,23 +21,31 @@ const Footer = () => {
         }
     }
 
-    console.log(icon[0])
 
     return (
         <div className='footer-container-mobile'> 
-            {button.map((button) => 
-                <input key={button} className='footer-button' type='button' value={button} onClick={(e) => handleClick(e)} />
+            {FooterButton.map((button, index) => 
+                <input 
+                    key={index} 
+                    className='footer-button' 
+                    type='button' value={button} 
+                    onClick={(e) => handleClick(e)}
+                />
             )}
             <BurgerMenu />
             <div className='footer-container-desktop'>
                 <div className='footer-desktop-img'>
-                    {icon.map((icon) => 
+                    {Icon.map((icon, index) => 
                         <a 
                             target="_blank"
                             rel="noopener noreferrer"
                             href={icon.url}
+                            key={index}
                         >
-                            <img src={icon.src} alt={icon.name}/>
+                            <img 
+                                src={icon.src} 
+                                alt={icon.name}
+                            />
                         </a>
                     )}
                 </div>

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
-import { Link } from 'react-router-dom';
 import './Home.scss'
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
 import { UserContext }  from '../../contexts/UserContext';
+import { HomeButton } from '../../data/LocalData';
 
 const Home = () => {
 
@@ -12,17 +12,15 @@ const Home = () => {
     const { setUserInfo } = useContext(UserContext);
     const { setNumberUserInfo } = useContext(NumberUserContext);
 
-    const homeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
-
     const handleClick = (e) => {
 
         setUserInfo([]);
 
         switch(e.target.value) {
-            case 'Single-Player' :
+            case 'Single - Player' :
                 setNumberUserInfo(1);
                 break;
-            case 'Multi-Player':
+            case 'Multi - Player':
                 setNumberUserInfo(2);
                 break;
             case 'Tutorial':
@@ -31,19 +29,19 @@ const Home = () => {
             default:
                 setNumberUserInfo(0);
         }
+
+        history.push('/select-level')
     }
 
 
     return (
             <div className='home-button'>
-                {homeButton.map((button, index) =>
-                    <Link to={{ pathname: '/select-level' }}>
+                {HomeButton.map((button, index) =>
                         <input 
                             key={index}
                             type='button'
                             value={button}
                             onClick={(e) => handleClick(e)}/>
-                    </Link>
                 )}
             </div>
     )

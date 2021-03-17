@@ -19,3 +19,7 @@ export const Icon = [{
  export const HomeButton = ['Single - Player', 'Multi - Player', 'Tutorial'];
  
  export const LevelButton = ['Sober', 'Drunk', 'Wasted'];
+
+ export const NumberPlayer = ['2', '3', '4'];
+
+ export const NumberButton = ['Back', 'Enter'];

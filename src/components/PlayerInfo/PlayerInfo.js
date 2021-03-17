@@ -16,12 +16,12 @@ const PlayerInfo = () => {
     const [playerName, setPlayerName] = useState('');
 
     const handleChange = (e) => {
-        setPlayerName(e.target.value)
+        setPlayerName(e.target.value);
     }
 
     const handleSubmit = () => {
-        setUserInfo({id: 1, name: playerName})
-        history.push('/single-board')
+        setUserInfo({id: 1, name: playerName});
+        history.push('/single-board');
     }
 
     const handleKeyDown = (e) => {
@@ -48,8 +48,17 @@ const PlayerInfo = () => {
                     />
                 </div>
                 <div className='singlePlayer-button'>
-                        <button type='button' onClick={() => history.push('/')}>Home</button>
-                        <input type='submit' value='Play' onClick={() => handleSubmit()}/>
+                        <button 
+                            type='button' 
+                            onClick={() => history.push('/')}
+                        >
+                            Home
+                        </button>
+                        <input 
+                            type='submit' 
+                            value='Play' 
+                            onClick={() => handleSubmit()}
+                        />
                 </div>
             </form>
         </div>       

@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import './MultiplayerNumber.scss'
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { NumberPlayer } from '../../data/LocalData';
+import { NumberButton } from '../../data/LocalData';
 
 const MultiplayerInfo = () => {
 
-    const numberPlayer = ['2', '3', '4'];
+    const history = useHistory();
+
     const { setNumberUserInfo } = useContext(NumberUserContext);
 
     const handleChange = (e) => {
@@ -13,20 +16,29 @@ const MultiplayerInfo = () => {
     } 
 
     return (
-        <div className='multiPlayer-info'>
-            <h3>Choose the number of players</h3>
-            <select name='number-player' onChange={(e) => handleChange(e)}>
-                {numberPlayer.map((number) => 
-                    <option key={number} value={number}>{number} Players</option>
+        <div className='multiPlayer-number-info'>
+            <h1>Choose the number of players</h1>
+            <select 
+                name='number-player' 
+                onChange={(e) => handleChange(e)}
+            >
+                {NumberPlayer.map((number) => 
+                    <option 
+                        key={number} 
+                        value={number}>{number} Players
+                    </option>
                 )}
             </select>
             <div className='multiPlayer-button'>
-            <Link to='/'>
-                <button type='button'>Back</button>
-            </Link>
-            <Link to='/multi-info'>
-                <button type='button'>Enter</button>
-            </Link>     
+                {NumberButton.map((button, index) => 
+                    <button 
+                        key={index}
+                        type='button' 
+                        onClick={() => {button === NumberButton[0] ? history.push('/select-level') : history.push('/multi-info')}}
+                    >
+                        {button}
+                    </button>
+                )} 
             </div>
         </div>
     )

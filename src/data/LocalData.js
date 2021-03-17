@@ -15,3 +15,7 @@ export const Icon = [{
  export const NavLink = ['Home', 'Ranking', 'About', 'Settings'];
 
  export const FooterButton = ['Home', 'Beer'];
+
+ export const HomeButton = ['Single - Player', 'Multi - Player', 'Tutorial'];
+ 
+ export const LevelButton = ['Sober', 'Drunk', 'Wasted'];

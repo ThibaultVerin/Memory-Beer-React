@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import './LevelSelection.scss'
 import { LevelContext }  from '../../contexts/LevelContext';
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { LevelButton } from '../../data/LocalData';
 
 const LevelSelection = () => {
 
@@ -10,8 +11,6 @@ const LevelSelection = () => {
 
     const { levelSelected, setLevelSelected } = useContext(LevelContext);
     const { numberUserInfo } = useContext(NumberUserContext);
-
-    const levelButton = ['Sober', 'Drunk', 'Wasted'];
 
     const handleClick = (e) => {
         setLevelSelected(e.target.value);
@@ -27,7 +26,7 @@ const LevelSelection = () => {
 
     return (
         <div className='level-selection-button'>
-        {levelButton.map((button, index) =>
+        {LevelButton.map((button, index) =>
                 <input 
                     key={index}
                     type='button'

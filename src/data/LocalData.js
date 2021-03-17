@@ -43,4 +43,50 @@ export const Icon = [{
 
  // BEER CARDS
 
- export const BeerCards = [bottle1, bottle2, bottle3, bottle4, bottle5, bottle6, bottle7, bottle8]
+ export const BeerCards = [
+   {
+      id: 1,
+      name: 'bottle1',
+      src: bottle1
+   }, 
+   {
+      id: 2,
+      name: 'bottle2',
+      src: bottle2
+   }, 
+   {
+      id: 3,
+      name: 'bottle3',
+      src: bottle3
+   }, 
+   {
+      id: 4,
+      name: 'bottle4',
+      src: bottle4
+   }, 
+   {
+      id: 5,
+      name: 'bottle5',
+      src: bottle5
+   }, 
+   {
+      id: 6,
+      name: 'bottle6',
+      src: bottle6
+   }, 
+   {
+      id: 7,
+      name: 'bottle7',
+      src: bottle7
+   }, 
+   {
+      id: 8,
+      name: 'bottle8',
+      src: bottle8
+   }, 
+];
+
+const Test = () => {
+   console.log('test');
+}
+

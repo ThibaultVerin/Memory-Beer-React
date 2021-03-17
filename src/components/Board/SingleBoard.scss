@@ -6,13 +6,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .card-container {
+    .single-board-card-container {
         width: 80%;
         height: 80%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
         background-color: $secondary-color;
         margin-top: 10%;
         border-radius: 15px;
         box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
+        .single-board-card {
+            height: 30%;
+            width: 25%;
+            background-color: $primary-color;
+            img {
+                width: 10px;
+            }
+        }
     
     }
 }

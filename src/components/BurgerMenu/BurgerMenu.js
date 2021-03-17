@@ -43,8 +43,9 @@ const BurgerMenu = () => {
             <div className={burgerClosing ? 'burger-menu-closing' : 'burger-menu-open'}>
                 <div className='burger-cross' onClick={() => handleClosing()}/>
                 <div className='burger-link'>
-                    {NavLink.map((link) => 
+                    {NavLink.map((link, index) => 
                         <input 
+                            key={index}
                             type='button' 
                             value={link} 
                             onClick={(e) => handleLink(e)}

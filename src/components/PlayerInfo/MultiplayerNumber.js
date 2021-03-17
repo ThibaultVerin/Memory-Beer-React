@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import './MultiplayerNumber.scss'
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
-import { NumberPlayer } from '../../data/LocalData';
-import { NumberButton } from '../../data/LocalData';
+import { NumberPlayer, NumberButton } from '../../data/LocalData';
 
 const MultiplayerInfo = () => {
 

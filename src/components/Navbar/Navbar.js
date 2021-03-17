@@ -38,8 +38,9 @@ const Navbar = () => {
                 <BurgerMenu />
             </div>
             <div className='navbar-links'>
-                {NavLink.map((link) =>
+                {NavLink.map((link, index) =>
                     <input 
+                        key={index}
                         type='button' 
                         value={link} 
                         onClick={(e) => handleLink(e)}

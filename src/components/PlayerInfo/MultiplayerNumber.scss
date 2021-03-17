@@ -63,6 +63,9 @@
 
 @media screen and (min-width: 532px) {
     .multiPlayer-number-info {
+        select {
+            width: 300px;
+        }
         .multiPlayer-button{
             width: 380px;
         }
@@ -74,9 +77,8 @@
         width: 625px;
         .multiPlayer-button {
             button {
-                height: 50px;
-                width: 90px;
-                font-size: 17px;
+                height: 60px;
+                width: 115px;
             }
         }
     }

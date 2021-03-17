@@ -1,0 +1,96 @@
+@import '../../Variables';
+
+.footer-container-mobile {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: $fourth-color;
+    box-shadow: -60px -3px $primary-color;
+    border-top-left-radius: 10px;
+    .footer-button {
+        height: 100%;
+        background-color: $fourth-color;
+        color:$third-color;
+        font-family: $primary-font-family;
+        font-size: 26px;
+        font-weight: bolder;
+        border: outset 5px rgba(255, 255, 255, 0.11);
+        border-top-left-radius: 10px;
+        &:first-child {
+            width: 52%;
+            padding-right: 9%;
+            &:active {
+                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                transform: translateY(4px);
+            }
+        }
+        &:nth-child(2) {
+            height: 86px;
+            width: 112px;
+            position: absolute;
+            left: 0; 
+            right: 0;
+            bottom: 2%; 
+            margin-left: auto; 
+            margin-right: auto; 
+            border-radius: 50%;
+            &:active {
+                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                transform: translateY(4px);
+            }
+        }
+    }
+    .footer-container-desktop {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 532px) {
+    .footer-container {
+        .footer-button {
+            &:nth-child(2) {
+                height: 95px;
+                width: 130px;
+                bottom: 2%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .footer-container-mobile {
+        height: 11vh;
+        background-color: $primary-color;
+        display: flex;
+        justify-content:center;
+        .footer-button {
+            display: none;
+        }
+        .footer-container-desktop {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .footer-desktop-img {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                img {
+                    width: 35px;
+                    height: 35px;
+                    margin: 0 20px;
+                    cursor: pointer;
+                }
+
+            }
+            p {
+                color: $third-color;
+                font-family: $primary-font-family;
+                font-size: 16px;
+                margin: 0;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}

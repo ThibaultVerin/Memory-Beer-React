@@ -2,7 +2,7 @@
 
 .singlePlayer-info {
     width: 80%;
-    height: 40%;
+    height: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -11,34 +11,48 @@
     color: $third-color;
     font-family: $primary-font-family;
     font-size: 22px;
+    border: solid;
     border-radius: 15px;
     box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-    margin-top: 10vh;
     padding: 20px 0;
+    margin-bottom: 25px;
     form {
-        height: 80%;
+        height: 95%;
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
+        margin-bottom: 15px;
+        p {
+            height: 10%;
+            font-weight: bold;
+            margin: 0;
+        }
         .singlePlayer-name {
-            height: 50%;
+            height: 48%;
             width: 80%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
-            h3 {
+            h1 {
                 margin: 0;
                 font: bolder;
             }
             input {
                 width: 80%;
+                height: 20%;
                 border: none;
-                border-radius: 5px;
-                padding: 10px;
+                border-radius: 20px;
+                padding: 15px;
+                outline: none;
+                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                &:focus {
+                    transition-duration: 0.3s;
+                    transform: scale(1.1);
+                }
             }
         }
         .singlePlayer-button {
@@ -47,14 +61,17 @@
             justify-content: space-around;
             margin-top: 20px;
             button, input {
-                height: 35px;
-                width: 80px;
+                height: 50px;
+                width: 100px;
                 background-color: $fourth-color;
                 color: $third-color;
                 font-weight: bolder;
-                font-size: 15px;
-                border: none;
-                border-radius: 5px;
+                font-family: $primary-font-family;
+                font-size: 25px;
+                border: solid 2px;
+                border-radius: 15px;
+                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+                outline: none;
                 cursor: pointer;
                 &:active {
                     box-shadow: 0 5px rgba(0, 0, 0, 0.2);
@@ -66,34 +83,24 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 532px) {
     .singlePlayer-info {
-        width: 60%;
-        height: 50%;
-        .singlePlayer-name {
-            height: 40%;
-            input {
-                height: 20px;
-            }
-        }
-        .singlePlayer-button {
-            button, input {
-                height: 50px;
-                width: 90px;
-                font-size: 17px;
+        form {
+            .singlePlayer-button {
+                width: 380px;
             }
         }
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
     .singlePlayer-info {
-        width: 45%;
-        height: 50%;
+        width: 625px;
         form {
-            .singlePlayer-name {
-                input {
-                    width: 70%;
+            .singlePlayer-button {
+                button, input {
+                    height: 60px;
+                    width: 115px;
                 }
             }
         }

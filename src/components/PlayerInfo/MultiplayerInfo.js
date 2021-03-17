@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import './MultiplayerInfo.scss';
 import { UserContext }  from '../../contexts/UserContext';
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { LevelContext }  from '../../contexts/LevelContext';
 
 const MultiplayerInfo = () => {
 
@@ -10,6 +11,7 @@ const MultiplayerInfo = () => {
 
     const { setUserInfo } = useContext(UserContext);
     const { numberUserInfo } = useContext(NumberUserContext);
+    const { levelSelected } = useContext(LevelContext);
 
     const [actualUser, setActualUser] = useState(1);
     const [playerName, setPlayerName] = useState('');
@@ -20,7 +22,7 @@ const MultiplayerInfo = () => {
 
     const handleSubmit = () => {
         if (actualUser === numberUserInfo) {
-            history.push('/multi-board', { from: 'MultiplayerInfo' })
+            history.push('/multi-board')
         }
         setUserInfo((userInfo) => [
             ...userInfo,{
@@ -44,20 +46,32 @@ const MultiplayerInfo = () => {
     return (
         
         <div className='multiPlayer-info'>
-            <div className='multiPlayer-name'>
-                <h3>{actualUser} Player Name</h3>
-                <input 
-                    type='text'
-                    name='player-name'
-                    value={playerName}
-                    placeholder='Enter your name' 
-                    onChange={(e) => handleChange(e)} 
-                    onKeyDown={handleKeyDown}
-                />
-            </div>
-            <div className='multiPlayer-button'>
-                    <button type='button' onClick={() => history.push('/')}>Back/resetidea</button>
-                    <input type='submit' value='Enter' onClick={() => handleSubmit()}/>
+            <div className='multiPlayer-form'>
+                <p>{numberUserInfo >= 2 ? 'Multi player mode' : 'Single player |'} {levelSelected} mode</p>
+                <div className='multiPlayer-name'>
+                    <h1>{actualUser} Player Name</h1>
+                    <input 
+                        type='text'
+                        name='player-name'
+                        value={playerName}
+                        placeholder='Enter your name' 
+                        onChange={(e) => handleChange(e)} 
+                        onKeyDown={handleKeyDown}
+                    />
+                </div>
+                <div className='multiPlayer-button'>
+                        <button 
+                            type='button' 
+                            onClick={() => history.push('/')}
+                        >
+                        Home
+                        </button>
+                        <input 
+                            type='submit' 
+                            value={actualUser === numberUserInfo ? 'Play' : 'Next'}
+                            onClick={() => handleSubmit()}
+                        />
+                </div>
             </div>
         </div>
         

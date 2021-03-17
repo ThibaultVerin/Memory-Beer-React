@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import './BurgerMenu.scss';
+import { NavLink } from '../../data/LocalData';
 
 const BurgerMenu = () => {
 
@@ -8,8 +9,6 @@ const BurgerMenu = () => {
 
     const [burgerOpen, setBurgerOpen] = useState(false);
     const [burgerClosing, setBurgerClosing] = useState(false);
-
-    const burgerLink = ['Home', 'Ranking', 'About', 'Settings'];
 
     const handleClosing = () => {
         setBurgerClosing(!burgerClosing);
@@ -44,8 +43,12 @@ const BurgerMenu = () => {
             <div className={burgerClosing ? 'burger-menu-closing' : 'burger-menu-open'}>
                 <div className='burger-cross' onClick={() => handleClosing()}/>
                 <div className='burger-link'>
-                    {burgerLink.map((link) => 
-                        <input type='button' value={link} onClick={(e) => handleLink(e)}/>
+                    {NavLink.map((link) => 
+                        <input 
+                            type='button' 
+                            value={link} 
+                            onClick={(e) => handleLink(e)}
+                        />
                     )}
                 </div>
             </div>

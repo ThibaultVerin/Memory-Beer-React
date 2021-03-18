@@ -47,7 +47,7 @@ export const Icon = [{
    {
       id: 1,
       name: 'bottle1',
-      src: bottle1
+      src: bottle1,
    }, 
    {
       id: 2,
@@ -85,8 +85,4 @@ export const Icon = [{
       src: bottle8
    }, 
 ];
-
-const Test = () => {
-   console.log('test');
-}
 

@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import './SingleBoard.scss';
 import { UserContext }  from '../../contexts/UserContext';
 import { BeerCards } from '../../data/LocalData';
+import logo from '../../data/pictures/Logo.png';
 
 const SingleBoard = () => {
 
@@ -18,6 +19,8 @@ const SingleBoard = () => {
     const [match, setMatch] = useState(false);
     const [cardOpen, setCardOpen] = useState(false);
 
+    const [className, setClassName] = useState('single-board-card-close')
+
     useEffect(() => {
         SortedCards();
     }, []);
@@ -27,9 +30,8 @@ const SingleBoard = () => {
     }, [bothChoices]);
 
     // useEffect(() => {
-    //     handleScore();
-    // }, [match]);
-
+    //     handleClassName();
+    // }, [playerFirstChoice]);
 
     const SortedCards = () => {
         const numberBottle = BeerCards.length;
@@ -41,19 +43,28 @@ const SingleBoard = () => {
         setSortedBeerCards(newBeerCards); 
      }
 
-    const handleClick = (card) => {
-        setCardOpen(true);
+    const handleClassName = (index) => {
+        console.log(index)
+        if (cardOpen === true) {
+            console.log(playerFirstChoice)
+            setClassName('single-board-card-open');
+        }
+     }
+
+    const handleClick = (card, index) => {
+        setCardOpen(!cardOpen);
         if (!playerFirstChoice) {
-            setPlayerFirstChoice(card.id);
+            setPlayerFirstChoice(card);
         } else {
-            setPlayerSecondChoice(card.id);
+            setPlayerSecondChoice(card);
             setBothChoices(!bothChoices);
         }
+        handleClassName(index);
     }
 
     const matchingResult = () => {
         if (playerFirstChoice !== undefined && playerSecondChoice !== undefined) {
-            if (playerFirstChoice === playerSecondChoice) {
+            if (playerFirstChoice.id === playerSecondChoice.id) {
                 setMatch(true);
                 setPlayerScore(playerScore + 10);
             } else {
@@ -65,13 +76,15 @@ const SingleBoard = () => {
         setMatch(false);
     }
 
+
     return (
         <div className='single-board-container'>
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
                 {sortedBeerCards.map((card, index) => 
-                    <div className='single-board-card-open' key ={index}>
-                        <img src={card.src} alt={card.name} id={card.id} onClick={() => handleClick(card)}/>
+                    <div className={cardOpen && (index  === playerFirstChoice.id - 1) ? 'single-board-card-open' : 'single-board-card-close'} key ={index} onClick={() => handleClick(card, index)}>
+                        <img src={card.src} alt={card.name} id={card.id} />
+                        <img src={logo} alt ='logo' />
                     </div>
                 )}
             </div>

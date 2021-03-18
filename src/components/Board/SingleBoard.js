@@ -10,15 +10,25 @@ const SingleBoard = () => {
 
     const { userInfo } = useContext(UserContext);
 
+    const [sortedBeerCards, setSortedBeerCards] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
     const [playerSecondChoice, setPlayerSecondChoice] = useState();
-    const [sortedBeerCards, setSortedBeerCards] = useState([]);
+    const [bothChoices, setBothChoices] = useState(false);
     const [match, setMatch] = useState(false);
+    const [cardOpen, setCardOpen] = useState(false);
 
     useEffect(() => {
         SortedCards();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        matchingResult();
+    }, [bothChoices]);
+
+    // useEffect(() => {
+    //     handleScore();
+    // }, [match]);
 
 
     const SortedCards = () => {
@@ -31,39 +41,28 @@ const SingleBoard = () => {
         setSortedBeerCards(newBeerCards); 
      }
 
-     console.log(playerFirstChoice);
-     console.log(playerSecondChoice);
-
     const handleClick = (card) => {
+        setCardOpen(true);
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
         } else {
             setPlayerSecondChoice(card.id);
-            matchingResult();
+            setBothChoices(!bothChoices);
         }
     }
 
     const matchingResult = () => {
-        if (playerFirstChoice === playerSecondChoice) {
-            setMatch(true);
-
-
-            console.log('miaou');
-        } else {
-            console.log('breh')
+        if (playerFirstChoice !== undefined && playerSecondChoice !== undefined) {
+            if (playerFirstChoice === playerSecondChoice) {
+                setMatch(true);
+                setPlayerScore(playerScore + 10);
+            } else {
+                setPlayerScore(playerScore - 10);
+            }
+            setPlayerFirstChoice();
+            setPlayerSecondChoice();
         }
-        handleScore()
-    }
-
-    const handleScore = () => {
-        if (match) {
-            setPlayerScore(playerScore + 10);
-        } else {
-            setPlayerScore(playerScore + 10);
-        }
-        setPlayerFirstChoice();
-        setPlayerSecondChoice();
-        setMatch(!match);
+        setMatch(false);
     }
 
     return (
@@ -71,7 +70,7 @@ const SingleBoard = () => {
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
                 {sortedBeerCards.map((card, index) => 
-                    <div className='single-board-card' key ={index}>
+                    <div className='single-board-card-open' key ={index}>
                         <img src={card.src} alt={card.name} id={card.id} onClick={() => handleClick(card)}/>
                     </div>
                 )}

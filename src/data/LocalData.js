@@ -45,42 +45,42 @@ export const Icon = [{
 
  export const BeerCards = [
    {
-      id: 1,
+      id: 0,
       name: 'bottle1',
       src: bottle1,
    }, 
    {
-      id: 2,
+      id: 1,
       name: 'bottle2',
       src: bottle2
    }, 
    {
-      id: 3,
+      id: 2,
       name: 'bottle3',
       src: bottle3
    }, 
    {
-      id: 4,
+      id: 3,
       name: 'bottle4',
       src: bottle4
    }, 
    {
-      id: 5,
+      id: 4,
       name: 'bottle5',
       src: bottle5
    }, 
    {
-      id: 6,
+      id: 5,
       name: 'bottle6',
       src: bottle6
    }, 
    {
-      id: 7,
+      id: 6,
       name: 'bottle7',
       src: bottle7
    }, 
    {
-      id: 8,
+      id: 7,
       name: 'bottle8',
       src: bottle8
    }, 

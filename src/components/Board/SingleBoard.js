@@ -34,19 +34,17 @@ const SingleBoard = () => {
                 src: BeerCards[i].src
             });
         }
-        shuffleArray(numberBottle);
-        setSortedBeerCards(newBeerCards); 
+        setSortedBeerCards(newBeerCards);
+        shuffleArray(newBeerCards);
      }
 
-     const shuffleArray = (newBeerCards) => {
-        for (let i = newBeerCards.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            console.log([newBeerCards[i], newBeerCards[j]] = [newBeerCards[j], newBeerCards[i]]) 
-            // [newBeerCards[i], newBeerCards[j]] = [newBeerCards[j], newBeerCards[i]]
+     function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
         }
-        SortedCards()
-     }
-
+        return array;
+      }
 
 
     return (

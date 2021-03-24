@@ -14,8 +14,8 @@ const Footer = () => {
             case 'Home' :
                 history.push('/');
                 break;
-            case 'Beer':
-                history.push('/');
+            case 'Rules':
+                history.push('/settings');
                 break;
             default:
         }

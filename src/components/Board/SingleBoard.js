@@ -15,19 +15,13 @@ const SingleBoard = () => {
     const [sortedBeerCards, setSortedBeerCards] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
 
+    const [playerChoice, setPlayerChoice] = useState([]);
 
-    const [cardOpen, setCardOpen] = useState(false);
-    const [playerFirstChoice, setPlayerFirstChoice] = useState();
-    const [playerSecondChoice, setPlayerSecondChoice] = useState();
-
-    const [classname, setClassname] = useState('single-board-card-close')
-    const [cardClicked, setCardClicked] = useState();
-
-   
-
+    /*eslint-disable */
     useEffect(() => {
         SortedCards();
     }, []);
+    /*eslint-enable */
     
 
     const SortedCards = () => {
@@ -36,7 +30,7 @@ const SingleBoard = () => {
 
         for (let i=0; i<numberBottle; i++) {
             newBeerCards.push({
-                id: numberBottle + i,
+                id: i,
                 name: BeerCards[i].name,
                 src: BeerCards[i].src
             });
@@ -54,35 +48,22 @@ const SingleBoard = () => {
     }
 
     const handleClick = (card) => {
-        setCardClicked(card.id);
-        setCardOpen(!cardOpen);
-        handleClassname(card.id);
-        if (!playerFirstChoice) {
-            setPlayerFirstChoice(card.id);
+        console.log(card.id);
+        if (playerChoice.length === 0) {
+            setPlayerChoice([card.id]);
             console.log(`FirstCard : ${card.id}`);
         } else {
-            setPlayerSecondChoice(card.id);
+            setPlayerChoice([...playerChoice, card.id]);
             console.log(`SecondCard : ${card.id}`);
         }
     }
-
-    const handleClassname = (id) => {
-        console.log(id);
-        console.log(cardClicked);
-        if (cardOpen === true) {
-            setClassname('single-board-card-open');
-        } else {
-            setClassname('single-board-card-close');
-        }
-    }
-
 
     return (
         <div className='single-board-container'>
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
-                {sortedBeerCards.map((card) => 
-                    <SingleBeerCards key ={card.id} card={card} classname={classname} cardClicked={cardClicked} handleClick={handleClick} />
+                {sortedBeerCards.map((card, index) => 
+                    <SingleBeerCards key ={index} card={card} handleClick={handleClick} />
                 )}
             </div>
         </div>

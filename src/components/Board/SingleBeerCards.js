@@ -2,23 +2,33 @@ import React, { useState, useEffect } from 'react';
 import './SingleBeerCards.scss';
 import logo from '../../data/pictures/Logo.png';
 
-const SingleBeerCards = ({ card, classname, handleClick }) => {
+const SingleBeerCards = ({ card, handleClick }) => {
 
     const [match, setMatch] = useState(false);
 
-    const [playerScore, setPlayerScore] = useState(0);
+    const [classname, setClassname] = useState('close');
 
+    const [clicked, setClicked] = useState(false);
+
+    /*eslint-disable */
+    useEffect (() => {
+        handleClassName();
+    }, [clicked]);
+    /*eslint-enable */
+
+    const handleClassName = () => {
+        if (clicked === true){
+            setClassname('open');
+        } else if(clicked === false) {
+            setClassname('close');
+        }
+    }
 
     // /*eslint-disable */
     // useEffect(() => {
     //     matchingResult();
     // }, [playerSecondChoice]);
     // /*eslint-enable */
-
-    const handleClassName = () => {
-     }
-
-
 
     // const matchingResult = () => {
     //     if (playerFirstChoice !== undefined && playerSecondChoice !== undefined) {
@@ -34,7 +44,10 @@ const SingleBeerCards = ({ card, classname, handleClick }) => {
     // }
 
     return (
-        <div className={classname} onClick={() => handleClick(card)}>
+        <div 
+            className={`single-board-card-${classname}`} 
+            onClick={() => {setClicked(!clicked); handleClick(card);}}
+        >
             <img src={card.src} alt={card.name} id={card.id} />
             <img src={logo} alt ='logo' />
         </div>

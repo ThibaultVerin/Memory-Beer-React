@@ -27,23 +27,23 @@ export const Icon = [{
     url:'https://www.linkedin.com/in/thibaultverin/'
  }];
 
- export const FooterButton = ['Home', 'Rules'];
+export const FooterButton = ['Home', 'Rules'];
 
- export const HomeButton = ['Single - Player', 'Multi - Player', 'Tutorial'];
+export const HomeButton = ['Single - Player', 'Multi - Player', 'Tutorial'];
 
  // LEVEL SELECTION
  
- export const LevelButton = ['Sober', 'Drunk', 'Wasted'];
+export const LevelButton = ['Sober', 'Drunk', 'Wasted'];
 
  // NUMBER SELECTION
 
- export const NumberPlayer = ['2', '3', '4'];
+export const NumberPlayer = ['2', '3', '4'];
 
- export const NumberButton = ['Back', 'Enter'];
+export const NumberButton = ['Back', 'Enter'];
 
  // BEER CARDS
 
- export const BeerCards = [
+export const BeerCards = [
    {
       id: 0,
       name: 'bottle1',
@@ -86,3 +86,4 @@ export const Icon = [{
    }, 
 ];
 
+export const SettingsButton = ['Reset', 'Save'];

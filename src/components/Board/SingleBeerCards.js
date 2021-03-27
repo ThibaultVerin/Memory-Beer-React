@@ -4,9 +4,7 @@ import logo from '../../data/pictures/Logo.png';
 
 const SingleBeerCards = ({ card, handleClick }) => {
 
-    const [match, setMatch] = useState(false);
-
-    const [classname, setClassname] = useState('close');
+    const [classname, setClassname] = useState('open');
 
     const [clicked, setClicked] = useState(false);
 
@@ -17,31 +15,13 @@ const SingleBeerCards = ({ card, handleClick }) => {
     /*eslint-enable */
 
     const handleClassName = () => {
-        if (clicked === true){
+        if (clicked){
             setClassname('open');
-        } else if(clicked === false) {
-            setClassname('close');
+        } else {
+            setClassname('open');
         }
     }
 
-    // /*eslint-disable */
-    // useEffect(() => {
-    //     matchingResult();
-    // }, [playerSecondChoice]);
-    // /*eslint-enable */
-
-    // const matchingResult = () => {
-    //     if (playerFirstChoice !== undefined && playerSecondChoice !== undefined) {
-    //         if (playerFirstChoice === playerSecondChoice) {
-    //             setMatch(!match);
-    //             setPlayerScore(playerScore + 10);
-    //         }
-    //         setPlayerScore(playerScore - 10);
-    //     }
-    //     setMatch(!match);
-    //     setPlayerFirstChoice();
-    //     setPlayerSecondChoice();
-    // }
 
     return (
         <div 

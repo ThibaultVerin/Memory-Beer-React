@@ -16,7 +16,6 @@ const SingleBoard = () => {
     const [playerScore, setPlayerScore] = useState(0);
 
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
-    const [playerSecondChoice, setPlayerSecondChoice] = useState();
 
     /*eslint-disable */
     useEffect(() => {
@@ -24,12 +23,6 @@ const SingleBoard = () => {
     }, []);
     /*eslint-enable */
 
-    /*eslint-disable */
-    // useEffect(() => {
-    //     matchingResult();
-    // }, [playerSecondChoice]);
-    /*eslint-enable */
-    
 
     const SortedCards = () => {
         const numberBottle = BeerCards.length;
@@ -60,24 +53,19 @@ const SingleBoard = () => {
             setPlayerFirstChoice(card.id);
             console.log(`FirstCard : ${card.id}`);
         } else {
-            setPlayerSecondChoice(card.id);
             console.log(`SecondCard : ${card.id}`);
             matchingResult(card);
         }
     }
 
-    const matchingResult = (card) => {
-        
+    const matchingResult = (card) => {      
         if (playerFirstChoice !== card.id) {
             setPlayerScore(playerScore - 10);
-            console.log('loose')
 
         } else {
             setPlayerScore(playerScore + 10);
-            console.log('win')
         }
         setPlayerFirstChoice();
-        setPlayerSecondChoice();
     }
 
     return (

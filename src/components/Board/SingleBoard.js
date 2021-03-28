@@ -17,6 +17,8 @@ const SingleBoard = () => {
 
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
 
+    const [pair, setPair] = useState(false);
+
     /*eslint-disable */
     useEffect(() => {
         SortedCards();
@@ -64,6 +66,7 @@ const SingleBoard = () => {
 
         } else {
             setPlayerScore(playerScore + 10);
+            setPair(true);
         }
         setPlayerFirstChoice();
     }
@@ -73,7 +76,7 @@ const SingleBoard = () => {
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
                 {sortedBeerCards.map((card, index) => 
-                    <SingleBeerCards key ={index} card={card} handleClick={handleClick} />
+                    <SingleBeerCards key ={index} card={card} pair={pair} handleClick={handleClick} />
                 )}
             </div>
         </div>

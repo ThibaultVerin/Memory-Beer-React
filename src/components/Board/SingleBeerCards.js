@@ -2,51 +2,61 @@ import React, { useState, useEffect } from 'react';
 import './SingleBeerCards.scss';
 import logo from '../../data/pictures/Logo.png';
 
-const SingleBeerCards = ({ card, handleClick }) => {
-
-    const [match, setMatch] = useState(false);
+const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
 
     const [classname, setClassname] = useState('close');
 
     const [clicked, setClicked] = useState(false);
 
-    /*eslint-disable */
-    useEffect (() => {
-        handleClassName();
-    }, [clicked]);
-    /*eslint-enable */
+    const [match, setMatch] = useState(false);
+
+    const [played, setPlayed] = useState(false)
+
+        /*eslint-disable */
+        useEffect (() => {
+            if (isPlayed) {
+                setPlayed(true)
+                if (pair && clicked) {
+                    setMatch(true)
+                }
+            } else {
+                setPlayed(false)
+            }
+            handleClassName();
+         }, [isPlayed]);
+         /*eslint-enable */
+
+        /*eslint-disable */
+        useEffect (() => {
+            handleClassName();
+        }, [clicked]);
+        /*eslint-enable */
 
     const handleClassName = () => {
-        if (clicked === true){
+        if (clicked && played){
             setClassname('open');
-        } else if(clicked === false) {
+            setClicked(false);
+        }
+        else if (clicked || match){
+            setClassname('open');
+        } else {
             setClassname('close');
+            setClicked(false);
         }
     }
 
-    // /*eslint-disable */
-    // useEffect(() => {
-    //     matchingResult();
-    // }, [playerSecondChoice]);
-    // /*eslint-enable */
+    const Test = () => {
+        if (clicked === false && lockBoard === false) {
+            handleClick(card);
+            setClicked(!clicked);     
+        }
+    }
 
-    // const matchingResult = () => {
-    //     if (playerFirstChoice !== undefined && playerSecondChoice !== undefined) {
-    //         if (playerFirstChoice === playerSecondChoice) {
-    //             setMatch(!match);
-    //             setPlayerScore(playerScore + 10);
-    //         }
-    //         setPlayerScore(playerScore - 10);
-    //     }
-    //     setMatch(!match);
-    //     setPlayerFirstChoice();
-    //     setPlayerSecondChoice();
-    // }
 
     return (
         <div 
             className={`single-board-card-${classname}`} 
-            onClick={() => {setClicked(!clicked); handleClick(card);}}
+            onClick={() => Test()}
         >
             <img src={card.src} alt={card.name} id={card.id} />
             <img src={logo} alt ='logo' />

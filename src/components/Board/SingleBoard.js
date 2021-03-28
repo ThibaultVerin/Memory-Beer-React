@@ -14,15 +14,27 @@ const SingleBoard = () => {
 
     const [sortedBeerCards, setSortedBeerCards] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
+    const [playerFirstChoice, setPlayerFirstChoice] = useState();
+    const [pair, setPair] = useState(false);
+    const [isPlayed, setIsPlayed] = useState(false);
 
-    const [playerChoice, setPlayerChoice] = useState([]);
+    const [lockBoard, setLockBoard] = useState(false);
 
     /*eslint-disable */
     useEffect(() => {
         SortedCards();
     }, []);
     /*eslint-enable */
-    
+
+    /*eslint-disable */
+    useEffect(() => {
+        setIsPlayed(false);
+        setPair(false);
+        setPlayerFirstChoice();
+        // setLockBoard(false);
+    }, [playerScore]);
+    /*eslint-enable */
+
 
     const SortedCards = () => {
         const numberBottle = BeerCards.length;
@@ -30,7 +42,7 @@ const SingleBoard = () => {
 
         for (let i=0; i<numberBottle; i++) {
             newBeerCards.push({
-                id: i,
+                id: i + 1,
                 name: BeerCards[i].name,
                 src: BeerCards[i].src
             });
@@ -48,13 +60,20 @@ const SingleBoard = () => {
     }
 
     const handleClick = (card) => {
-        console.log(card.id);
-        if (playerChoice.length === 0) {
-            setPlayerChoice([card.id]);
-            console.log(`FirstCard : ${card.id}`);
+        if (!playerFirstChoice) {
+            setPlayerFirstChoice(card.id);
         } else {
-            setPlayerChoice([...playerChoice, card.id]);
-            console.log(`SecondCard : ${card.id}`);
+            matchingResult(card);
+        }
+    }
+
+    const matchingResult = (card) => {
+        //setIsPlayed(true);
+        if (playerFirstChoice !== card.id) {
+            setPlayerScore(playerScore - 20); 
+        } else {
+            setPlayerScore(playerScore + 100);
+            setPair(true);
         }
     }
 
@@ -63,7 +82,14 @@ const SingleBoard = () => {
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
                 {sortedBeerCards.map((card, index) => 
-                    <SingleBeerCards key ={index} card={card} handleClick={handleClick} />
+                    <SingleBeerCards 
+                        key ={index} 
+                        card={card} 
+                        pair={pair} 
+                        isPlayed={isPlayed}
+                        lockBoard={lockBoard} 
+                        handleClick={handleClick} 
+                    />
                 )}
             </div>
         </div>

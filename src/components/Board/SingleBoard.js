@@ -18,6 +18,7 @@ const SingleBoard = () => {
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
 
     const [pair, setPair] = useState(false);
+    const [isPlayed, setIsPlayed] = useState(false);
 
     /*eslint-disable */
     useEffect(() => {
@@ -50,6 +51,7 @@ const SingleBoard = () => {
     }
 
     const handleClick = (card) => {
+        setPair(false);
         console.log(card.id);
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
@@ -60,15 +62,18 @@ const SingleBoard = () => {
         }
     }
 
-    const matchingResult = (card) => {      
+    const matchingResult = (card) => {    
+        setIsPlayed(true);
         if (playerFirstChoice !== card.id) {
-            setPlayerScore(playerScore - 10);
-
+            setPlayerScore(playerScore - 10); 
         } else {
             setPlayerScore(playerScore + 10);
             setPair(true);
         }
         setPlayerFirstChoice();
+        setTimeout(() => {
+            setIsPlayed(false);
+        }, 1000);
     }
 
     return (
@@ -76,7 +81,7 @@ const SingleBoard = () => {
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
                 {sortedBeerCards.map((card, index) => 
-                    <SingleBeerCards key ={index} card={card} pair={pair} handleClick={handleClick} />
+                    <SingleBeerCards key ={index} card={card} pair={pair} isPlayed={isPlayed} handleClick={handleClick} />
                 )}
             </div>
         </div>

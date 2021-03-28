@@ -2,46 +2,63 @@ import React, { useState, useEffect } from 'react';
 import './SingleBeerCards.scss';
 import logo from '../../data/pictures/Logo.png';
 
-const SingleBeerCards = ({ card, handleClick, pair }) => {
+const SingleBeerCards = ({ card, handleClick, pair, isPlayed }) => {
 
     const [classname, setClassname] = useState('close');
 
     const [clicked, setClicked] = useState(false);
 
-    const [match, setMatch] = useState();
+    const [match, setMatch] = useState(false);
+
+    const [played, setPlayed] = useState(false)
 
     /*eslint-disable */
-    useEffect (() => {
-       
-    }, [clicked]);
+    // useEffect (() => {
+    //    if (pair) {
+    //        setMatch(true)
+    //    }
+    // }, [pair]);
     /*eslint-enable */
 
         /*eslint-disable */
         useEffect (() => {
-            if(clicked) {
-                handleClassName();
-                console.log('breh')
+            if (isPlayed) {
+                setPlayed(true)
+                if (pair && clicked) {
+                    setMatch(true)
+                }
+            } else {
+                setPlayed(false)
             }
+            handleClassName();
+         }, [isPlayed]);
+         /*eslint-enable */
+
+        /*eslint-disable */
+        useEffect (() => {
+            handleClassName();
         }, [clicked]);
         /*eslint-enable */
 
     const handleClassName = () => {
-        if (clicked){
+        if (clicked && played){
+            setClassname('open');
+            setTimeout(() => {
+                setClicked(false);
+            }, 1000);
+        }
+        else if (clicked || match){
             setClassname('open');
         } else {
             setClassname('close');
+            setClicked(false);
         }
-        setTimeout(() => {
-            setClassname('close');
-            setClicked(!clicked);
-        }, 10000);
     }
 
     const Test = () => {
         if (clicked === false) {
             handleClick(card);
-            setClicked(!clicked);
-            
+            setClicked(!clicked);     
         }
     }
 

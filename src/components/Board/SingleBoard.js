@@ -26,6 +26,12 @@ const SingleBoard = () => {
     }, []);
     /*eslint-enable */
 
+    /*eslint-disable */
+    useEffect(() => {
+        setIsPlayed(false);
+    }, [playerScore]);
+    /*eslint-enable */
+
 
     const SortedCards = () => {
         const numberBottle = BeerCards.length;
@@ -33,7 +39,7 @@ const SingleBoard = () => {
 
         for (let i=0; i<numberBottle; i++) {
             newBeerCards.push({
-                id: i,
+                id: i + 1,
                 name: BeerCards[i].name,
                 src: BeerCards[i].src
             });
@@ -53,6 +59,7 @@ const SingleBoard = () => {
     const handleClick = (card) => {
         setPair(false);
         console.log(card.id);
+        console.log(!playerFirstChoice);
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
             console.log(`FirstCard : ${card.id}`);
@@ -65,15 +72,12 @@ const SingleBoard = () => {
     const matchingResult = (card) => {    
         setIsPlayed(true);
         if (playerFirstChoice !== card.id) {
-            setPlayerScore(playerScore - 10); 
+            setPlayerScore(playerScore - 20); 
         } else {
-            setPlayerScore(playerScore + 10);
+            setPlayerScore(playerScore + 100);
             setPair(true);
         }
         setPlayerFirstChoice();
-        setTimeout(() => {
-            setIsPlayed(false);
-        }, 1000);
     }
 
     return (

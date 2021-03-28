@@ -12,14 +12,6 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed }) => {
 
     const [played, setPlayed] = useState(false)
 
-    /*eslint-disable */
-    // useEffect (() => {
-    //    if (pair) {
-    //        setMatch(true)
-    //    }
-    // }, [pair]);
-    /*eslint-enable */
-
         /*eslint-disable */
         useEffect (() => {
             if (isPlayed) {

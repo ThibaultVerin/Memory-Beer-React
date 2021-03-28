@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './SingleBeerCards.scss';
 import logo from '../../data/pictures/Logo.png';
 
-const SingleBeerCards = ({ card, handleClick, pair, isPlayed }) => {
+const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
 
     const [classname, setClassname] = useState('close');
 
@@ -35,9 +35,7 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed }) => {
     const handleClassName = () => {
         if (clicked && played){
             setClassname('open');
-            setTimeout(() => {
-                setClicked(false);
-            }, 1000);
+            setClicked(false);
         }
         else if (clicked || match){
             setClassname('open');
@@ -48,7 +46,7 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed }) => {
     }
 
     const Test = () => {
-        if (clicked === false) {
+        if (clicked === false && lockBoard === false) {
             handleClick(card);
             setClicked(!clicked);     
         }

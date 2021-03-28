@@ -14,11 +14,11 @@ const SingleBoard = () => {
 
     const [sortedBeerCards, setSortedBeerCards] = useState([]);
     const [playerScore, setPlayerScore] = useState(0);
-
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
-
     const [pair, setPair] = useState(false);
     const [isPlayed, setIsPlayed] = useState(false);
+
+    const [lockBoard, setLockBoard] = useState(false);
 
     /*eslint-disable */
     useEffect(() => {
@@ -29,6 +29,9 @@ const SingleBoard = () => {
     /*eslint-disable */
     useEffect(() => {
         setIsPlayed(false);
+        setPair(false);
+        setPlayerFirstChoice();
+        // setLockBoard(false);
     }, [playerScore]);
     /*eslint-enable */
 
@@ -57,27 +60,21 @@ const SingleBoard = () => {
     }
 
     const handleClick = (card) => {
-        setPair(false);
-        console.log(card.id);
-        console.log(!playerFirstChoice);
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
-            console.log(`FirstCard : ${card.id}`);
         } else {
-            console.log(`SecondCard : ${card.id}`);
             matchingResult(card);
         }
     }
 
-    const matchingResult = (card) => {    
-        setIsPlayed(true);
+    const matchingResult = (card) => {
+        //setIsPlayed(true);
         if (playerFirstChoice !== card.id) {
             setPlayerScore(playerScore - 20); 
         } else {
             setPlayerScore(playerScore + 100);
             setPair(true);
         }
-        setPlayerFirstChoice();
     }
 
     return (
@@ -85,7 +82,14 @@ const SingleBoard = () => {
             {userInfo.name} : {playerScore}
             <div className='single-board-card-container'>
                 {sortedBeerCards.map((card, index) => 
-                    <SingleBeerCards key ={index} card={card} pair={pair} isPlayed={isPlayed} handleClick={handleClick} />
+                    <SingleBeerCards 
+                        key ={index} 
+                        card={card} 
+                        pair={pair} 
+                        isPlayed={isPlayed}
+                        lockBoard={lockBoard} 
+                        handleClick={handleClick} 
+                    />
                 )}
             </div>
         </div>

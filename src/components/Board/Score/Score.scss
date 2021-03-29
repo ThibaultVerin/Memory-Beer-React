@@ -1,0 +1,11 @@
+@import '../../../Variables';
+
+.score-container {
+    width: 100%;
+    text-align: center;
+    color: $third-color;
+    font-family: $primary-font-family;
+    h1 {
+        margin: 0;
+    }
+}

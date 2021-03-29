@@ -7,17 +7,17 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
     const [classname, setClassname] = useState('close');
     const [clicked, setClicked] = useState(false);
     const [match, setMatch] = useState(false);
-    const [played, setPlayed] = useState(false)
+    const [played, setPlayed] = useState(false);
 
     /*eslint-disable */
     useEffect (() => {
         if (isPlayed) {
-            setPlayed(true)
+            setPlayed(true);
             if (pair && clicked) {
-                setMatch(true)
+                setMatch(true);
             }
         } else {
-            setPlayed(false)
+            setPlayed(false);
         }
         handleClassName();
     }, [isPlayed]);
@@ -55,8 +55,8 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
             className={`single-board-card-${classname}`} 
             onClick={() => Playing()}
         >
-            <img src={card.src} alt={card.name} id={card.id} />
-            <img src={logo} alt ='logo' />
+            <img  src={card.src} alt={card.name} id={card.id} />
+            <img  src={logo} alt ='logo' />
         </div>
     )
 }

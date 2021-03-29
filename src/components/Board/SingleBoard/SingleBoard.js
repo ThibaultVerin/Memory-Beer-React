@@ -70,8 +70,8 @@ const SingleBoard = () => {
                         handleClick={handleClick} 
                     />
                 )}
-                {/* {pairCount === (sortedBeerCards.length/2) && <EndGameModal />} */}
-                {pairCount === 0 && <EndGameModal />}
+                {pairCount === (sortedBeerCards.length/2) && <EndGameModal />}
+                {/* {pairCount === 0 && <EndGameModal />} */}
             </div>
         </div>
     )

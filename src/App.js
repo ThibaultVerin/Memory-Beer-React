@@ -7,7 +7,7 @@ import PlayerInfo from './components/PlayerInfo/PlayerInfo';
 import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
 import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
 import LevelSelection from './components/LevelSelection/LevelSelection';
-import SingleBoard from './components/Board/SingleBoard';
+import SingleBoard from './components/Board/SingleBoard/SingleBoard';
 import Settings from './components/Settings/Settings'
 import { UserProvider }  from './contexts/UserContext';
 import { NumberUserProvider }  from './contexts/NumberUserContext';

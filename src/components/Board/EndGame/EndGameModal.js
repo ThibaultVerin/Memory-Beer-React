@@ -17,7 +17,7 @@ const EndGameModal = ({ score }) => {
                         <p>Time : 02:25 </p>
                         <p>Score : {score} </p>
                         <p>Time bonus : 0</p>
-                        <p>Total Score :</p>
+                        <p>Total Score : {score}</p>
                     </div>
                     <div className='endgame-home-button'>
                         <button 

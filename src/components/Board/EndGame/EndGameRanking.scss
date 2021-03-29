@@ -1,0 +1,48 @@
+@import '../../../Variables';
+
+.endgame-ranking {
+    width: 80%;
+    height: 35%;
+    border: solid black 2px;
+    margin-bottom: 20px;
+    background-color: $third-color;
+    color: black;
+}
+
+.endgame-ranking-text {
+    height: 20%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    p {
+        margin: 0;
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+.endgame-ranking-button {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    button {
+        height: 50px;
+        width: 100px;
+        background-color: $fourth-color;
+        color: $third-color;
+        font-weight: bolder;
+        font-family: $primary-font-family;
+        font-size: 25px;
+        border: solid 2px;
+        border-radius: 15px;
+        box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+        outline: none;
+        cursor: pointer;
+        &:active {
+            box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+            transform: translateY(4px);
+        }
+    }
+}

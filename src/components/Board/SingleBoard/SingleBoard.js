@@ -4,7 +4,7 @@ import './SingleBoard.scss';
 import { UserContext }  from '../../../contexts/UserContext';
 import { sortedBeerCards } from './ShuffleBoard';
 import SingleBeerCards from './SingleBeerCards';
-import EndGameModal from '../EndGameModal';
+import EndGameModal from '../EndGame/EndGameModal';
 
 
 const SingleBoard = () => {
@@ -19,11 +19,6 @@ const SingleBoard = () => {
     const [isPlayed, setIsPlayed] = useState(false);
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
-
-    /*eslint-disable */
-    useEffect(() => {
-    }, [playerScore]);
-    /*eslint-enable */
 
 
     const handleClick = (card) => {
@@ -70,8 +65,8 @@ const SingleBoard = () => {
                         handleClick={handleClick} 
                     />
                 )}
-                {pairCount === (sortedBeerCards.length/2) && <EndGameModal />}
-                {/* {pairCount === 0 && <EndGameModal />} */}
+                {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
+                {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
             </div>
         </div>
     )

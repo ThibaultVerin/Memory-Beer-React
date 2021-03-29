@@ -28,10 +28,12 @@ const SingleBoard = () => {
 
     /*eslint-disable */
     useEffect(() => {
-        setIsPlayed(false);
         setPair(false);
         setPlayerFirstChoice();
-        // setLockBoard(false);
+        setTimeout(() => {
+            setIsPlayed(false);
+            setLockBoard(false);
+        }, 1000);
     }, [playerScore]);
     /*eslint-enable */
 
@@ -68,7 +70,8 @@ const SingleBoard = () => {
     }
 
     const matchingResult = (card) => {
-        //setIsPlayed(true);
+        setLockBoard(true);
+        setIsPlayed(true);
         if (playerFirstChoice !== card.id) {
             setPlayerScore(playerScore - 20); 
         } else {

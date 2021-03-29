@@ -15,6 +15,9 @@ const SingleBoard = () => {
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
 
+
+    const drunkMode = true;
+
     const handleClick = (card) => {
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
@@ -48,7 +51,7 @@ const SingleBoard = () => {
     return (
         <div className='single-board-container'>
         {pairCount !== (sortedBeerCards.length/2) && <Score playerScore={playerScore} />}
-            <div className='single-board-card-container'>
+            <div className={drunkMode ? 'single-board-card-container drunk' : 'single-board-card-container'}>
                 {sortedBeerCards.map((card, index) => 
                     <SingleBeerCards 
                         key ={index} 

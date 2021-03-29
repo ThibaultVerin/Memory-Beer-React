@@ -20,11 +20,6 @@ const SingleBoard = () => {
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
 
-    /*eslint-disable */
-    useEffect(() => {
-    }, [playerScore]);
-    /*eslint-enable */
-
 
     const handleClick = (card) => {
         if (!playerFirstChoice) {
@@ -70,8 +65,8 @@ const SingleBoard = () => {
                         handleClick={handleClick} 
                     />
                 )}
-                {/* {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />} */}
-                {pairCount === 0 && <EndGameModal score={playerScore} />}
+                {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
+                {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
             </div>
         </div>
     )

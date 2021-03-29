@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SingleBeerCards.scss';
-import logo from '../../data/pictures/Logo.png';
+import logo from '../../../data/pictures/Logo.png';
 
 const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
 

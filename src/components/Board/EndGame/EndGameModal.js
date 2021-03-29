@@ -12,14 +12,14 @@ const EndGameModal = ({ score }) => {
                 <EndGameRanking />
                 :
                 <>
-                    <div className='endgame-text'>
-                        <h1>Game Finished</h1>
+                    <h1>Game Finished</h1>
+                    <div className='endgame-home-text'>
                         <p>Time : 02:25 </p>
                         <p>Score : {score} </p>
                         <p>Time bonus : 0</p>
                         <p>Total Score :</p>
                     </div>
-                    <div className='singlePlayer-button'>
+                    <div className='endgame-home-button'>
                         <button 
                             type='button' 
                             onClick={() => setShowRanking(true)}

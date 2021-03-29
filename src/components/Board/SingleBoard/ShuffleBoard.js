@@ -1,4 +1,3 @@
-import React from 'react';
 import { BeerCards } from '../../../data/LocalData';
 
 export const sortedBeerCards = BeerCards;

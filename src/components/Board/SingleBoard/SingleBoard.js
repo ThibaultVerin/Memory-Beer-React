@@ -4,7 +4,7 @@ import './SingleBoard.scss';
 import { UserContext }  from '../../../contexts/UserContext';
 import { sortedBeerCards } from './ShuffleBoard';
 import SingleBeerCards from './SingleBeerCards';
-import EndGameModal from '../EndGameModal';
+import EndGameModal from '../EndGame/EndGameModal';
 
 
 const SingleBoard = () => {
@@ -70,8 +70,8 @@ const SingleBoard = () => {
                         handleClick={handleClick} 
                     />
                 )}
-                {pairCount === (sortedBeerCards.length/2) && <EndGameModal />}
-                {/* {pairCount === 0 && <EndGameModal />} */}
+                {/* {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />} */}
+                {pairCount === 0 && <EndGameModal score={playerScore} />}
             </div>
         </div>
     )

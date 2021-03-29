@@ -15,7 +15,6 @@ const SingleBoard = () => {
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
 
-
     const handleClick = (card) => {
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
@@ -43,7 +42,7 @@ const SingleBoard = () => {
             setPair(false);
             setIsPlayed(false);
             setLockBoard(false);
-        }, 1500);
+        }, 1000);
     }
 
     return (

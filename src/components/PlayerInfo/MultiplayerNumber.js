@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import './MultiplayerNumber.scss'
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
@@ -9,6 +9,12 @@ const MultiplayerInfo = () => {
     const history = useHistory();
 
     const { setNumberPlayer } = useContext(NumberPlayerContext);
+
+    /*eslint-disable */
+    useEffect(() => {
+        setNumberPlayer(2);
+    }, [])
+    /*eslint-enable */
 
     const handleChange = (e) => {
         setNumberPlayer(parseInt(e.target.value))
@@ -33,7 +39,7 @@ const MultiplayerInfo = () => {
                     <button 
                         key={index}
                         type='button' 
-                        onClick={() => {button === NumberButton[0] ? history.push('/select-level') : history.push('/multi-info')}}
+                        onClick={() => {button === NumberButton[0] ? history.push('/select-level') : history.push('/single-player')}}
                     >
                         {button}
                     </button>

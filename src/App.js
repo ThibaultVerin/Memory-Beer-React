@@ -5,7 +5,6 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import PlayerInfo from './components/PlayerInfo/PlayerInfo';
 import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
-import MultiplayerInfo from './components/PlayerInfo/MultiplayerInfo';
 import LevelSelection from './components/LevelSelection/LevelSelection';
 import SingleBoard from './components/Board/SingleBoard/SingleBoard';
 import Settings from './components/Settings/Settings'
@@ -30,7 +29,6 @@ function App() {
               <Route exact path='/single-player' component={PlayerInfo} />
               <Route exact path='/single-board' component={SingleBoard} />
               <Route exact path='/multi-player' component={MultiplayerNumber} />
-              <Route exact path='/multi-info' component={MultiplayerInfo} />
               <Route exact path='/select-level' component={LevelSelection} />
               <Route exact path ='/settings' component={Settings} />
             </Switch>

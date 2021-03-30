@@ -3,13 +3,7 @@
 .multiPlayer-info {
     width: 80%;
     height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     background-color: $secondary-color;
-    color: $third-color;
-    font-family: $primary-font-family;
     font-size: 22px;
     border: solid;
     border-radius: 15px;
@@ -23,7 +17,6 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 15px;
         p {
             height: 10%;
             font-weight: bold;
@@ -37,17 +30,13 @@
             justify-content: space-between;
             align-items: center;
             margin-top: 10px;
-            h1 {
-                margin: 0;
-                font: bolder;
-            }
             input {
                 width: 80%;
                 height: 20%;
                 border: none;
                 border-radius: 20px;
                 padding: 15px;
-                outline: none;
+                background-color: $third-color;
                 box-shadow: 0 5px rgba(0, 0, 0, 0.2);
                 &:focus {
                     transition-duration: 0.3s;

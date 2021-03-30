@@ -1,36 +1,104 @@
 @import '../../../Variables';
 
-.single-board-card-open {
+.single-board-card {
     height: 22%;
-    width: 21%;
-    margin:0 0.5%;
+    width: 70px;
+    margin:0 1.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: $primary-color;
     border-radius: 10px;
     box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    &:hover {
+        transition-duration: 0.3s;
+        transform: scale(1.1);
+    }
+    &:active {
+        box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+        transform: translateY(4px);
+    }
+}
+.close {
+    img:first-child {
+        display: none;
+    }
+    img:nth-child(2) {
+        width: 45px;
+    }
+}
+
+.open {
     img:first-child {
         width: 20px;
     }
     img:nth-child(2) {
         display: none;
     }
-}
-.single-board-card-close {
-    height: 22%;
-    width: 21%;
-    margin:0 0.5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $primary-color;
-    border-radius: 10px;
-    box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-    img:first-child {
-        display: none;
+    animation: rotateAndBlur 1s;
+    @keyframes rotateAndBlur {
+        0% {
+          transform: rotateY(0deg);
+        }
+        50% {
+          transform: rotateY(90deg);
+        }
+        100% {
+          transform: rotateY(180deg);
+        }
     }
-    img:nth-child(2) {
-        width: 45px;
+}
+
+@media screen and (min-width: 410px) {
+    .single-board-card {
+        margin:0 2.2%;
+    }
+}
+
+@media screen and (min-width: 496px) {
+    .single-board-card {
+        margin:0 2.7%;
+    }
+}
+
+@media screen and (min-width: 532px) {
+    .single-board-card {
+        width: 80px;
+        margin:0 3%;
+
+
+    }
+    .close {
+        img:nth-child(2) {
+            width: 50px;
+        }
+    }
+    .open {
+        img:first-child {
+            width: 25px;
+        }
+    }
+}
+
+@media screen and (min-width: 632px) {
+    .single-board-card {
+        width: 85px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .single-board-card {
+        width: 100px;
+    }
+    .close {
+        img:nth-child(2) {
+            width: 60px;
+        }
+    }
+    .open {
+        img:first-child {
+            width: 25px;
+        }
     }
 }

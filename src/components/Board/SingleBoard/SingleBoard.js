@@ -1,17 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
-// import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
 import './SingleBoard.scss';
-import { UserContext }  from '../../../contexts/UserContext';
 import { sortedBeerCards } from './ShuffleBoard';
 import SingleBeerCards from './SingleBeerCards';
 import EndGameModal from '../EndGame/EndGameModal';
+import Score from '../Score/Score';
 
 
 const SingleBoard = () => {
-
-    // const history = useHistory();
-
-    const { userInfo } = useContext(UserContext);
 
     const [playerScore, setPlayerScore] = useState(0);
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
@@ -20,6 +15,8 @@ const SingleBoard = () => {
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
 
+
+    const drunkMode = false;
 
     const handleClick = (card) => {
         if (!playerFirstChoice) {
@@ -48,13 +45,13 @@ const SingleBoard = () => {
             setPair(false);
             setIsPlayed(false);
             setLockBoard(false);
-        }, 1500);
+        }, 1000);
     }
 
     return (
         <div className='single-board-container'>
-            {userInfo.name} : {playerScore}
-            <div className='single-board-card-container'>
+        {pairCount !== (sortedBeerCards.length/2) && <Score playerScore={playerScore} />}
+            <div className={drunkMode ? 'single-board-card-container drunk' : 'single-board-card-container'}>
                 {sortedBeerCards.map((card, index) => 
                     <SingleBeerCards 
                         key ={index} 
@@ -65,8 +62,8 @@ const SingleBoard = () => {
                         handleClick={handleClick} 
                     />
                 )}
-                {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
                 {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
+                {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
             </div>
         </div>
     )

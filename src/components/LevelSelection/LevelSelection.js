@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
-import '../Style/HomeInput.scss'
+import '../Style/HomeInput.scss';
+import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
-import { NumberUserContext }  from '../../contexts/NumberUserContext';
 import { LevelButton } from '../../data/LocalData';
 import HomeInput from '../Style/HomeInput';
 
@@ -10,16 +10,16 @@ const LevelSelection = () => {
 
     const history = useHistory();
 
+    const { playerMode } = useContext(PlayerModeContext);
     const { setLevelSelected } = useContext(LevelContext);
-    const { numberUserInfo } = useContext(NumberUserContext);
 
     const handleClick = (e) => {
 
         setLevelSelected(e.target.value);
         
-        if (numberUserInfo === 1) {
+        if (playerMode === 1) {
             history.push('/single-player')
-        } else if (numberUserInfo === 2) {
+        } else if (playerMode === 2) {
             history.push('/multi-player')
         }
     }

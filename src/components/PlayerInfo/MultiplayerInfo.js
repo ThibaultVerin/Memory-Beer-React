@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import './MultiplayerInfo.scss';
 import { UserContext }  from '../../contexts/UserContext';
-import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 
 const MultiplayerInfo = () => {
@@ -10,7 +10,7 @@ const MultiplayerInfo = () => {
     const history = useHistory();
 
     const { setUserInfo } = useContext(UserContext);
-    const { numberUserInfo } = useContext(NumberUserContext);
+    const { numberUserInfo } = useContext(PlayerModeContext);
     const { levelSelected } = useContext(LevelContext);
 
     const [actualUser, setActualUser] = useState(1);

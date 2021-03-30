@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import './MultiplayerNumber.scss'
-import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { NumberPlayer, NumberButton } from '../../data/LocalData';
 
 const MultiplayerInfo = () => {
 
     const history = useHistory();
 
-    const { setNumberUserInfo } = useContext(NumberUserContext);
+    const { setNumberUserInfo } = useContext(PlayerModeContext);
 
     const handleChange = (e) => {
         setNumberUserInfo(parseInt(e.target.value))

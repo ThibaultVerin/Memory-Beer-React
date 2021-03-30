@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import './PlayerInfo.scss';
 import { UserContext }  from '../../contexts/UserContext';
-import { NumberUserContext }  from '../../contexts/NumberUserContext';
+import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 
 const PlayerInfo = () => {
@@ -10,7 +10,7 @@ const PlayerInfo = () => {
     const history = useHistory();
 
     const { setUserInfo } = useContext(UserContext);
-    const { numberUserInfo } = useContext(NumberUserContext);
+    const { playerMode } = useContext(PlayerModeContext);
     const { levelSelected } = useContext(LevelContext);
     
     const [playerName, setPlayerName] = useState('');
@@ -35,7 +35,7 @@ const PlayerInfo = () => {
         
         <div className='singlePlayer-info'>
             <form onSubmit={() => handleSubmit()}>
-                <p>{numberUserInfo >= 2 ? 'Multi player mode' : 'Single player |'} {levelSelected} mode</p>
+                <p>{playerMode >= 2 ? 'Multi player mode' : 'Single player |'} {levelSelected} mode</p>
                 <div className='singlePlayer-name'>
                     <h1>Name :</h1>
                     <input 

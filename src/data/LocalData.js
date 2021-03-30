@@ -29,7 +29,7 @@ export const Icon = [{
 
 export const FooterButton = ['Home', 'Rules'];
 
-export const HomeButton = ['Single - Player', 'Multi - Player', 'Tutorial'];
+export const HomeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
 
  // LEVEL SELECTION
  

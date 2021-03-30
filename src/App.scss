@@ -10,6 +10,20 @@
   background-color: $primary-color;
   color: $third-color;
   font-family: $primary-font-family;
+  h1 {
+    margin: 0;
+  }
+  input {
+    background-color: $secondary-color;
+    color: $third-color;
+    font-family: $primary-font-family;
+    font-size: 30px;
+    font-weight: bold;
+    border: solid;
+    border-radius: 15px;
+    outline: none;
+    cursor: pointer;
+  }
 }
 
 @media screen and (min-width: 768px) {

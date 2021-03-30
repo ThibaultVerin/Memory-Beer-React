@@ -12,14 +12,16 @@ import Settings from './components/Settings/Settings'
 import { UserProvider }  from './contexts/UserContext';
 import { PlayerModeProvider }  from './contexts/PlayerModeContext';
 import { LevelProvider }  from './contexts/LevelContext';
+import { NumberPlayerProvider }  from './contexts/NumberPlayerContext';
 
 
 function App() {
 
   return (
     <UserProvider>
+      <PlayerModeProvider>
     <LevelProvider>
-    <PlayerModeProvider>
+    <NumberPlayerProvider>
       <Router>
         <Navbar />
           <div className="App">
@@ -35,8 +37,9 @@ function App() {
           </div>
          <Footer /> 
       </Router>
-    </PlayerModeProvider>
+      </NumberPlayerProvider>
     </LevelProvider>
+    </PlayerModeProvider>
     </UserProvider>
   );
 }

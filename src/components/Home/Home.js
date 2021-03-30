@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import './Home.scss'
+import '../Style/HomeInput.scss'
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
 import { UserContext }  from '../../contexts/UserContext';
 import { HomeButton } from '../../data/LocalData';
+import HomeInput from '../Style/HomeInput';
 
 const Home = () => {
 
@@ -11,6 +12,12 @@ const Home = () => {
 
     const { setUserInfo } = useContext(UserContext);
     const { setNumberUserInfo } = useContext(NumberUserContext);
+
+    /*eslint-disable */
+    useEffect(() => {
+        setNumberUserInfo(0);
+    }, [])
+    /*eslint-enable */
 
     const handleClick = (e) => {
 
@@ -35,15 +42,16 @@ const Home = () => {
 
 
     return (
-            <div className='home-button'>
-                {HomeButton.map((button, index) =>
-                        <input 
-                            key={index}
-                            type='button'
-                            value={button}
-                            onClick={(e) => handleClick(e)}/>
-                )}
-            </div>
+        <div className='home-input'>
+            {HomeButton.map((button, index) =>
+                <HomeInput 
+                    key={index}
+                    type='button'
+                    value={button}
+                    handleClick={handleClick}            
+                />
+            )}
+        </div>
     )
 }
 

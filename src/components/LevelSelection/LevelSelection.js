@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { useHistory } from "react-router-dom";
-import './LevelSelection.scss'
+import '../Style/HomeInput.scss'
 import { LevelContext }  from '../../contexts/LevelContext';
 import { NumberUserContext }  from '../../contexts/NumberUserContext';
 import { LevelButton } from '../../data/LocalData';
+import HomeInput from '../Style/HomeInput';
 
 const LevelSelection = () => {
 
@@ -13,7 +14,9 @@ const LevelSelection = () => {
     const { numberUserInfo } = useContext(NumberUserContext);
 
     const handleClick = (e) => {
+
         setLevelSelected(e.target.value);
+        
         if (numberUserInfo === 1) {
             history.push('/single-player')
         } else if (numberUserInfo === 2) {
@@ -22,16 +25,16 @@ const LevelSelection = () => {
     }
 
     return (
-        <div className='level-selection-button'>
-        {LevelButton.map((button, index) =>
-                <input 
+        <div className='home-input'>
+            {LevelButton.map((button, index) =>
+                <HomeInput 
                     key={index}
                     type='button'
                     value={button}
-                    onClick={(e) => handleClick(e)}
+                    handleClick={handleClick}            
                 />
-        )}
-    </div>
+            )}
+        </div>
     )
 }
 

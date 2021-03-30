@@ -16,7 +16,7 @@ const SingleBoard = () => {
     const [pairCount, setPairCount] = useState(0);
 
 
-    const drunkMode = true;
+    const drunkMode = false;
 
     const handleClick = (card) => {
         if (!playerFirstChoice) {

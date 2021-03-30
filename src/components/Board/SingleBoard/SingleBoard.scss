@@ -1,7 +1,6 @@
 @import '../../../Variables';
 
 .single-board-container {
-    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -42,6 +41,53 @@
         100% {
           transform: rotate(360deg);
           filter: blur(2px);
+        }
+    }
+}
+
+@media screen and (min-width: 632px) {
+    .single-board-container {
+        width: 90%;
+        .single-board-card-container {
+            width: 80%;
+            padding: 0 30px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .single-board-container {
+        .single-board-card-container {
+            width: 75%;
+            height: 86%;
+        }
+    }
+}
+
+@media screen and (min-width: 890px) {
+    .single-board-container {
+        width: 79%;
+        .single-board-card-container {
+            padding: 0 40px;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .single-board-container {
+        flex-direction: row;
+        .single-board-card-container {
+            width: 75%;
+            padding: 0 70px;
+        }
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .single-board-container {
+        width: 90%;
+        .single-board-card-container {
+            width: 55%;
         }
     }
 }

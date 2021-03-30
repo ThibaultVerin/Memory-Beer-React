@@ -8,11 +8,13 @@
   justify-content: center;
   text-align: center;
   background-color: $primary-color;
+  color: $third-color;
+  font-family: $primary-font-family;
 }
 
 @media screen and (min-width: 768px) {
   .App {
-    height: 76vh;
+    height: 79vh;
   }
 }
 

@@ -1,36 +1,27 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react'
 import './PlayerName.scss';
-import { UserContext }  from '../../contexts/UserContext';
 import { useHistory } from "react-router-dom";
+import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
 
-const PlayerName = () => {
+const PlayerName = ({ handleSubmit, handleChange, actualUser }) => {
 
     const history = useHistory();
 
-    const { setUserInfo } = useContext(UserContext);
-
-    const [playerName, setPlayerName] = useState('');
-
-    const handleChange = (e) => {
-        setPlayerName(e.target.value);
-    }
+    const { numberPlayer } = useContext(NumberPlayerContext);
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            handleSubmit();
+            handleSubmit(e);
         }
-    }
-
-    const handleSubmit = (e) => {
-        setUserInfo({id: 1, name: playerName});
-        history.push('/single-board');
-        e.preventDefault();
     }
     
     return (
         <>
             <form onSubmit={(e) => handleSubmit(e)}>
-                <label>Name :</label>
+                {numberPlayer > 1 ? 
+                    <label>{actualUser} Player Name</label> :
+                    <label>Name :</label>
+               } 
                 <input 
                     type='text' 
                     name='name' 

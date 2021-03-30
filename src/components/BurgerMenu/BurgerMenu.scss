@@ -92,6 +92,16 @@
             font-size: 40px;
             margin: 0;
             border: none;
+            animation-duration: 1.5s;
+            animation-name: transparent;
+            @keyframes transparent {
+                from {
+                  opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+              }
         }
     }  
 }

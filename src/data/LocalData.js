@@ -29,11 +29,11 @@ export const Icon = [{
 
 export const FooterButton = ['Home', 'Rules'];
 
-export const HomeButton = ['Single-Player', 'Multi-Player', 'Tutorial'];
+export const ModeInput = ['Single-Player', 'Multi-Player', 'Tutorial'];
 
  // LEVEL SELECTION
  
-export const LevelButton = ['Sober', 'Drunk', 'Wasted'];
+export const LevelInput = ['Sober', 'Drunk', 'Wasted'];
 
  // NUMBER SELECTION
 

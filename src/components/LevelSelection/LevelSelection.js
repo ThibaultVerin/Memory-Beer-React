@@ -1,37 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import './LevelSelection.scss'
+import '../Style/HomeInput.scss';
+import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
-import { NumberUserContext }  from '../../contexts/NumberUserContext';
-import { LevelButton } from '../../data/LocalData';
+import { LevelInput } from '../../data/LocalData';
+import HomeInput from '../Style/HomeInput';
 
 const LevelSelection = () => {
 
     const history = useHistory();
 
+    const { playerMode } = useContext(PlayerModeContext);
     const { setLevelSelected } = useContext(LevelContext);
-    const { numberUserInfo } = useContext(NumberUserContext);
+
+    /*eslint-disable */
+    useEffect(() => {
+        setLevelSelected();
+    }, [])
+    /*eslint-enable */
 
     const handleClick = (e) => {
         setLevelSelected(e.target.value);
-        if (numberUserInfo === 1) {
-            history.push('/single-player')
-        } else if (numberUserInfo === 2) {
-            history.push('/multi-player')
-        }
+        history.push(`/${playerMode.toLowerCase()}`);
     }
 
     return (
-        <div className='level-selection-button'>
-        {LevelButton.map((button, index) =>
-                <input 
+        <div className='home-input'>
+            {LevelInput.map((button, index) =>
+                <HomeInput 
                     key={index}
                     type='button'
                     value={button}
-                    onClick={(e) => handleClick(e)}
+                    handleClick={handleClick}            
                 />
-        )}
-    </div>
+            )}
+        </div>
     )
 }
 

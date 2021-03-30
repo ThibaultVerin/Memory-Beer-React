@@ -10,7 +10,7 @@ import LevelSelection from './components/LevelSelection/LevelSelection';
 import SingleBoard from './components/Board/SingleBoard/SingleBoard';
 import Settings from './components/Settings/Settings'
 import { UserProvider }  from './contexts/UserContext';
-import { NumberUserProvider }  from './contexts/NumberUserContext';
+import { PlayerModeProvider }  from './contexts/PlayerModeContext';
 import { LevelProvider }  from './contexts/LevelContext';
 
 
@@ -19,7 +19,7 @@ function App() {
   return (
     <UserProvider>
     <LevelProvider>
-    <NumberUserProvider>
+    <PlayerModeProvider>
       <Router>
         <Navbar />
           <div className="App">
@@ -35,8 +35,8 @@ function App() {
           </div>
          <Footer /> 
       </Router>
-     </NumberUserProvider>
-     </LevelProvider>
+    </PlayerModeProvider>
+    </LevelProvider>
     </UserProvider>
   );
 }

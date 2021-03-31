@@ -2,17 +2,18 @@ import React from 'react';
 import './MainButton.scss';
 import { useHistory } from "react-router-dom";
 
-const MainButton = ({ type, value, link}) => {
+const MainButton = ({ type, value, link, handleClick }) => {
 
     const history = useHistory();
 
     const History = () => {
         history.push(link)
     }
-    const handleClick = () => {
+    const handleEvent = (e) => {
         if (link) {
-            console.log(link)
             History();
+        } else if (handleClick) {
+            handleClick();
         }
     }
 
@@ -23,7 +24,7 @@ const MainButton = ({ type, value, link}) => {
                 className='main-button'
                 type={type} 
                 value={value}
-                onClick={handleClick}
+                onClick={(e) => handleEvent(e)}
             />
         </>
     )

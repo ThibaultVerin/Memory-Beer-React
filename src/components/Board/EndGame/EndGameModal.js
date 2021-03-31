@@ -7,6 +7,10 @@ const EndGameModal = ({ score }) => {
 
     const [showRanking, setShowRanking] = useState(false);
 
+    const handleClick = () => {
+        setShowRanking(true)
+    }
+
     return (
         <div className='endgame-container'>
             {showRanking ? 
@@ -24,7 +28,7 @@ const EndGameModal = ({ score }) => {
                         <MainButton 
                             type='button'
                             value='Next'
-                            onClick={() => setShowRanking(true)}
+                            handleClick={handleClick}
                         />
                     </div>
                 </>

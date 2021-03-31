@@ -1,10 +1,9 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
 import './EndGameRanking.scss';
+import MainButton from '../../Style/MainButton';
 
 const EndGameRanking = () => {
 
-    const history = useHistory();
 
     return (
         <>
@@ -15,18 +14,16 @@ const EndGameRanking = () => {
                 <p>or challenge yourself with hardcore difficulties !!!</p>
             </div>
             <div className='endgame-ranking-button'>
-                <button 
-                    type='button' 
-                    onClick={() => history.push('/single-player')}
-                >
-                    Restart
-                </button>
-                <button 
-                    type='button' 
-                    onClick={() => history.push('/ranking')}
-                >
-                    Ranking
-                </button>
+                <MainButton 
+                    type='button'
+                    value='Restart'
+                    link='/single-player' 
+                />
+                <MainButton 
+                    type='button'
+                    value='Ranking'
+                    link='/ranking'
+                />
             </div>
         </>
     )

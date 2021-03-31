@@ -24,22 +24,16 @@
     width: 80%;
     display: flex;
     justify-content: space-around;
-    button {
-        height: 50px;
-        width: 100px;
-        background-color: $fourth-color;
-        color: $third-color;
-        font-weight: bolder;
-        font-family: $primary-font-family;
-        font-size: 25px;
-        border: solid 2px;
-        border-radius: 15px;
-        box-shadow: 0 5px rgba(0, 0, 0, 0.2);
-        outline: none;
-        cursor: pointer;
-        &:active {
-            box-shadow: 0 5px rgba(0, 0, 0, 0.2);
-            transform: translateY(4px);
-        }
+}
+
+@media screen and (min-width: 532px) {
+    .endgame-ranking-button {
+        width: 380px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .endgame-ranking-button {
+        width: 450px;
     }
 }

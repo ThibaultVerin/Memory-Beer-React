@@ -21,7 +21,12 @@ const LevelSelection = () => {
 
     const handleClick = (e) => {
         setLevelSelected(e.target.value);
-        history.push(`/${playerMode.toLowerCase()}`);
+        if (playerMode) {
+            history.push(`/${playerMode.toLowerCase()}`);
+        } else {
+            history.push('/');
+            alert('Sorry the session was lost');
+        }
     }
 
     return (

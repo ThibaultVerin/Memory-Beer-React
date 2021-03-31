@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './PlayerInfo.scss';
 import { useHistory } from "react-router-dom";
 import { UserContext }  from '../../contexts/UserContext';
@@ -18,6 +18,12 @@ const PlayerInfo = () => {
 
     const [actualUser, setActualUser] = useState(1);
     const [playerName, setPlayerName] = useState('');
+
+    /*eslint-disable */
+    useEffect(() => {
+        setUserInfo([]);
+    }, [])
+    /*eslint-enable */
 
     const handleSubmitSingle = (e) => {
         setUserInfo({id: 1, name: playerName});

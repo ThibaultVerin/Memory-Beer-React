@@ -8,6 +8,7 @@ import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
 import LevelSelection from './components/LevelSelection/LevelSelection';
 import SingleBoard from './components/Board/SingleBoard/SingleBoard';
 import Settings from './components/Settings/Settings'
+import Ranking from './components/Ranking/Ranking'
 import { UserProvider }  from './contexts/UserContext';
 import { PlayerModeProvider }  from './contexts/PlayerModeContext';
 import { LevelProvider }  from './contexts/LevelContext';
@@ -30,6 +31,7 @@ function App() {
               <Route exact path='/single-board' component={SingleBoard} />
               <Route exact path='/multi-player' component={MultiplayerNumber} />
               <Route exact path='/select-level' component={LevelSelection} />
+              <Route exact path ='/ranking' component={Ranking} />
               <Route exact path ='/settings' component={Settings} />
             </Switch>
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './SingleBoard.scss';
 import { sortedBeerCards } from './ShuffleBoard';
 import SingleBeerCards from './SingleBeerCards';
@@ -17,6 +17,21 @@ const SingleBoard = () => {
 
 
     const drunkMode = false;
+
+    useEffect(() => {
+        if (!isPlayed) {
+            setTimeout(() => {
+                setLockBoard(false); 
+            }, 1000);
+        }
+    }, [isPlayed])
+
+    useEffect(() => {
+        if (!playerFirstChoice) {
+            setPair(false);
+            setIsPlayed(false);
+        }
+    }, [playerFirstChoice])
 
     const handleClick = (card) => {
         if (!playerFirstChoice) {
@@ -39,13 +54,9 @@ const SingleBoard = () => {
             setPlayerScore(playerScore + 100);
             setPair(true);
             setPairCount(pairCount + 1);
+            setLockBoard(false); 
         }
         setPlayerFirstChoice();
-        setTimeout(() => {
-            setPair(false);
-            setIsPlayed(false);
-            setLockBoard(false);
-        }, 1000);
     }
 
     return (
@@ -63,8 +74,8 @@ const SingleBoard = () => {
                     />
                 )}
             </div>
-            {/* {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />} */}
-            {pairCount === 0 && <EndGameModal score={playerScore} />}
+            {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
+            {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
         </div>
     )
 }

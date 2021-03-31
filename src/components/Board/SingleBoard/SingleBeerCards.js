@@ -4,7 +4,7 @@ import logo from '../../../data/pictures/Logo.png';
 
 const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
 
-    const [classname, setClassname] = useState('single-board-card close');
+    const [classname, setClassname] = useState('single-board-card');
     const [clicked, setClicked] = useState(false);
     const [match, setMatch] = useState(false);
     const [played, setPlayed] = useState(false);
@@ -30,15 +30,20 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
     /*eslint-enable */
 
     const handleClassName = () => {
-        if (clicked && played){
+        if (clicked && played && !match){
             setClassname('single-board-card open');
-            setClicked(false);
-        }
-        else if (clicked || match){
+            setTimeout(() => {
+                setClassname('single-board-card closing');
+                setClicked(false);
+            }, 1000);
+
+        } else if (clicked || match){
             setClassname('single-board-card open');
         } else {
-            setClassname('single-board-card close');
-            setClicked(false);
+            setTimeout(() => {
+                setClassname('single-board-card');
+                setClicked(false);
+            }, 1000);
         }
     }
 
@@ -55,8 +60,8 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
             className={classname} 
             onClick={() => Playing()}
         >
-            <img  src={card.src} alt={card.name} id={card.id} />
-            <img  src={logo} alt ='logo' />
+            <img  className='card-front' src={card.src} alt={card.name} id={card.id} />
+            <img  className='card-back' src={logo} alt ='logo' />
         </div>
     )
 }

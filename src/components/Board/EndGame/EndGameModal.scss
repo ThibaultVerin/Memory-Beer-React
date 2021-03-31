@@ -32,24 +32,33 @@
     }
     .endgame-home-button {
         display: flex;
-        justify-content: flex-end;
-        button {
-            height: 50px;
-            width: 100px;
-            background-color: $fourth-color;
-            color: $third-color;
-            font-weight: bolder;
-            font-family: $primary-font-family;
-            font-size: 25px;
-            border: solid 2px;
-            border-radius: 15px;
-            box-shadow: 0 5px rgba(0, 0, 0, 0.2);
-            outline: none;
-            cursor: pointer;
-            &:active {
-                box-shadow: 0 5px rgba(0, 0, 0, 0.2);
-                transform: translateY(4px);
-            }
+    }
+}
+
+
+@media screen and (min-width: 632px) {
+    .endgame-container {
+        width: 80%;
+        .endgame-home-button {
+            width: 70%;
+            justify-content: flex-end;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .endgame-container {
+        width: 576px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .endgame-container {
+        width: 65%;
+        height: 63%;
+        left: 17.5%;
+        .endgame-home-button {
+            width: 60%;
         }
     }
 }

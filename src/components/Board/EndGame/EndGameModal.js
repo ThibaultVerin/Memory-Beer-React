@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MainButton from '../../Style/MainButton';
 import './EndGameModal.scss'
 import EndGameRanking from './EndGameRanking';
 
@@ -20,12 +21,11 @@ const EndGameModal = ({ score }) => {
                         <p>Total Score : {score}</p>
                     </div>
                     <div className='endgame-home-button'>
-                        <button 
-                            type='button' 
+                        <MainButton 
+                            type='button'
+                            value='Next'
                             onClick={() => setShowRanking(true)}
-                        >
-                            Next
-                        </button>
+                        />
                     </div>
                 </>
             }

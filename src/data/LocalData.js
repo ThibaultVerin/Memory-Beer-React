@@ -35,7 +35,6 @@ export const ModeInput = ['Single-Player', 'Multi-Player', 'Tutorial'];
  
 export const LevelInput = ['Sober', 'Drunk', 'Wasted'];
 
-
  // NUMBER SELECTION
 
 export const NumberPlayer = ['2', '3', '4'];

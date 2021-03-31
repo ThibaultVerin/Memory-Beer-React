@@ -5,7 +5,6 @@ import { UserContext }  from '../../contexts/UserContext';
 import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
-
 import PlayerName from '../Style/PlayerName.js';
 
 const PlayerInfo = () => {

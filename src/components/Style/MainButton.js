@@ -13,7 +13,7 @@ const MainButton = ({ type, value, link, handleClick }) => {
         if (link) {
             History();
         } else if (handleClick) {
-            handleClick();
+            handleClick(e);
         }
     }
 

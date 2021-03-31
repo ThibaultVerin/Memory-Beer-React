@@ -12,6 +12,10 @@ const PlayerName = ({ handleSubmit, handleChange, actualUser }) => {
             handleSubmit(e);
         }
     }
+
+    const handleClick = (e) => {
+        handleSubmit(e);
+    }
     
     return (
         <>
@@ -30,15 +34,15 @@ const PlayerName = ({ handleSubmit, handleChange, actualUser }) => {
                     min='1'
                 />
                 <div className='main-button-container'>
-
                     <MainButton 
                         type='button'
                         value='Levels'
                         link='/select-level'
                     />
                     <MainButton 
-                        type='submit'
+                        type={numberPlayer !== actualUser ? 'button' : 'submit'} 
                         value='Play'
+                        handleClick={handleClick}
                     />
                 </div>
             </form>

@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
 import './MultiplayerNumber.scss'
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
 import { NumberPlayer, NumberButton } from '../../data/LocalData';
+import MainButton from '../Style/MainButton.js';
 
 const MultiplayerInfo = () => {
-
-    const history = useHistory();
 
     const { setNumberPlayer } = useContext(NumberPlayerContext);
 
@@ -36,13 +34,12 @@ const MultiplayerInfo = () => {
             </select>
             <div className='multiPlayer-button'>
                 {NumberButton.map((button, index) => 
-                    <button 
+                    <MainButton 
                         key={index}
-                        type='button' 
-                        onClick={() => {button === NumberButton[0] ? history.push('/select-level') : history.push('/single-player')}}
-                    >
-                        {button}
-                    </button>
+                        type='button'
+                        value={button}
+                        link={button === NumberButton[0] ? '/select-level' : '/single-player'}
+                    />
                 )} 
             </div>
         </div>

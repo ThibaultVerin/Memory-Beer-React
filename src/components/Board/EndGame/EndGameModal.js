@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import MainButton from '../../Style/MainButton';
 import './EndGameModal.scss'
 import EndGameRanking from './EndGameRanking';
 
 const EndGameModal = ({ score }) => {
 
     const [showRanking, setShowRanking] = useState(false);
+
+    const handleClick = () => {
+        setShowRanking(true)
+    }
 
     return (
         <div className='endgame-container'>
@@ -20,12 +25,11 @@ const EndGameModal = ({ score }) => {
                         <p>Total Score : {score}</p>
                     </div>
                     <div className='endgame-home-button'>
-                        <button 
-                            type='button' 
-                            onClick={() => setShowRanking(true)}
-                        >
-                            Next
-                        </button>
+                        <MainButton 
+                            type='button'
+                            value='Next'
+                            handleClick={handleClick}
+                        />
                     </div>
                 </>
             }

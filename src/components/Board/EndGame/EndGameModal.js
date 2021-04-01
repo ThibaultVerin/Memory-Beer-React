@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { UserContext }  from '../../../contexts/UserContext';
 import MainButton from '../../Style/MainButton';
 import './EndGameModal.scss'
 import EndGameRanking from './EndGameRanking';
 
 const EndGameModal = ({ score }) => {
+    
+    const { setUserInfo } = useContext(UserContext);
 
     const [showRanking, setShowRanking] = useState(false);
+
+    useEffect(() => {
+        setUserInfo(userInfo => ({
+            ...userInfo,
+            score: score,
+        }))
+    }, [])
 
     const handleClick = () => {
         setShowRanking(true)

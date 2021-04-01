@@ -19,19 +19,24 @@ const PlayerInfo = () => {
     const [actualUser, setActualUser] = useState(1);
     const [playerName, setPlayerName] = useState('');
 
-    /*eslint-disable */
+    /*eslint-enable */
     useEffect(() => {
         setUserInfo([]);
     }, [])
     /*eslint-enable */
 
     const handleSubmitSingle = (e) => {
-        setUserInfo({id: 1, name: playerName});
+        setUserInfo({
+            id: 1, 
+            name: playerName,
+            score: 0,
+            time: null,
+        });
         history.push('/single-board');
         e.preventDefault();
     }
 
-    const handleSubmitMulti = () => {
+    const handleSubmitMulti = (e) => {
         if (actualUser === numberPlayer) {
             history.push('/multi-board')
         }
@@ -39,9 +44,12 @@ const PlayerInfo = () => {
             ...userInfo,{
                 id: actualUser,
                 name: playerName,
+                score: 0,
+                time: null,
             },
         ]);
         setActualUser(actualUser + 1);
+        e.preventDefault();
     }
 
     const handleSubmit = (e) => {

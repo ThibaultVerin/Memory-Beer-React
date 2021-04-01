@@ -90,61 +90,51 @@ export const SettingsButton = ['Reset', 'Save'];
 
 export const RankingArray = [
    {
-       position: 1,
        name:'Guy Mauve',
        score: 780,
        time: '2:01'
    },
    {
-       position: 3,
        name:'Chen Zen',
        score: 740,
        time: '2:08'
    },
    {
-       position: 2,
        name:'Sam Soule',
        score: 760,
        time: '2:06'
    },
    {
-       position: 5,
        name:'Neta Miaou',
        score: 710,
        time: '2:15'
    },
    {
-       position: 6,
        name:'Mr Jean',
        score: 700,
        time: '2:18'
    },
    {
-       position: 4,
        name:'Noel Flantier',
        score: 720,
        time: '2:11'
    },
    {
-       position: 7,
        name:'Tobias Beecher',
        score: 680,
        time: '2:26'
    },
    {
-       position: 9,
        name:'Philly Flingo',
        score: 620,
        time: '2:41'
    },
    {
-       position: 8,
        name:'Rico',
        score: 640,
        time: '2:39'
    },
    {
-       position: 11,
        name:'Peluche',
        score: 580,
        time: '2:55'

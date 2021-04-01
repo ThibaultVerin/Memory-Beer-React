@@ -12,10 +12,13 @@
     border: solid;
     border-radius: 15px;
     box-shadow: 10px 10px 5px 1px rgba(0, 0, 0, 0.2);
-    //overflow: hidden;
+    overflow: scroll;
     table {
         height: 100%;
+        width: 90%;
         margin-top: 20px;
+        border-spacing: 0;
+        border-radius: 10px;
         th {
             font-size: 37px;
         }
@@ -26,7 +29,15 @@
                     font-weight: bolder;
                 }
             }
+            .user-ranking-row {
+                background-color: $third-color;
+                color: $primary-color;
+                font-size: 25px;
+                font-weight: bolder;
+                border-radius: 10px;
+            }
         }
     }
     
 }
+

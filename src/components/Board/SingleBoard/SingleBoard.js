@@ -20,7 +20,7 @@ const SingleBoard = () => {
         if (!isPlayed) {
             setTimeout(() => {
                 setLockBoard(false); 
-            }, 1000);
+            }, 1500);
         }
     }, [isPlayed])
 

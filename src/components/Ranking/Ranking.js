@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { UserContext }  from '../../contexts/UserContext';
 import { RankingArray } from '../../data/LocalData';
 import './Ranking.scss';
@@ -7,15 +7,29 @@ const Ranking = () => {
 
     const { userInfo } = useContext(UserContext);
 
-
-    const sortByScore = RankingArray;
-
-        sortByScore.sort(function (a, b) {
-        return a.position - b.position;
-      });
+    const [sortedArray, setSortedArray] = useState(RankingArray);
 
 
-    console.log(RankingArray);
+        /*eslint-disable */
+        useEffect(() => {
+            setSortedArray(sortedArray => ({
+                ...sortedArray, userInfo
+            }))
+        }, [])
+        /*eslint-enable */
+
+
+    // const sortByScore = sortedArray;
+
+    //     sortByScore.sort(function (a, b) {
+    //     return a.position - b.position;
+    //   });
+
+
+    //console.log(sortByScore);
+    // console.log(userInfo);
+    console.log(sortedArray);
+    console.log(sortedArray[1]);
 
     return (
         <div className='ranking-container'>
@@ -32,7 +46,7 @@ const Ranking = () => {
                         <td>Score</td>
                         <td>Time</td>
                     </tr>
-                    {sortByScore.map((user, index) => 
+                    {RankingArray.map((user, index) => 
                         <tr key={index}>
                             <td>{user.position}</td>
                             <td>{user.name}</td>

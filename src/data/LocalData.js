@@ -149,10 +149,4 @@ export const RankingArray = [
        score: 580,
        time: '2:55'
    },
-   {
-       position: 10,
-       name:'Jean Bon',
-       score: 600,
-       time: '2:59'
-   }
 ];

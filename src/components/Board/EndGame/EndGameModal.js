@@ -10,12 +10,14 @@ const EndGameModal = ({ score }) => {
 
     const [showRanking, setShowRanking] = useState(false);
 
+    /*eslint-disable */
     useEffect(() => {
         setUserInfo(userInfo => ({
             ...userInfo,
             score: score,
         }))
     }, [])
+    /*eslint-enable */
 
     const handleClick = () => {
         setShowRanking(true)
@@ -29,8 +31,8 @@ const EndGameModal = ({ score }) => {
                 <>
                     <h1>Game Finished</h1>
                     <div className='endgame-home-text'>
-                        <p>Time : 02:25 </p>
-                        <p>Score : {score} </p>
+                        <p>Time : 02:25</p>
+                        <p>Score : {score}</p>
                         <p>Time bonus : 0</p>
                         <p>Total Score : {score}</p>
                     </div>

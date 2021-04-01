@@ -19,7 +19,7 @@ const PlayerInfo = () => {
     const [actualUser, setActualUser] = useState(1);
     const [playerName, setPlayerName] = useState('');
 
-    /*eslint-enable */
+    /*eslint-disable */
     useEffect(() => {
         setUserInfo([]);
     }, [])

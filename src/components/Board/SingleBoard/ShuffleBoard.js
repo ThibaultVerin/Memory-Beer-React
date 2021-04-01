@@ -22,5 +22,6 @@ const ShuffleArray = (array) => {
     return array;
 }
 
+
 SortedCards();
 ShuffleArray(sortedBeerCards);

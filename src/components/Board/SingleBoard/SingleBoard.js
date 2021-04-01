@@ -5,7 +5,6 @@ import SingleBeerCards from './SingleBeerCards';
 import EndGameModal from '../EndGame/EndGameModal';
 import Score from '../Score/Score';
 
-
 const SingleBoard = () => {
 
     const [playerScore, setPlayerScore] = useState(0);
@@ -14,7 +13,6 @@ const SingleBoard = () => {
     const [isPlayed, setIsPlayed] = useState(false);
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
-
 
     const drunkMode = false;
 

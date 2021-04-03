@@ -5,7 +5,6 @@ import './Score.scss';
 const Score = ({ playerScore }) => {
 
     const { userInfo } = useContext(UserContext);
-    console.log(userInfo.score)
 
     return (
         <div className='score-container'>

@@ -8,6 +8,7 @@ import bottle5 from './cards/bouteille5.png';
 import bottle6 from './cards/bouteille6.png';
 import bottle7 from './cards/bouteille7.png';
 import bottle8 from './cards/bouteille8.png';
+import bottle9 from './cards/bouteille9.png';
 
 
 // LINKS
@@ -83,7 +84,17 @@ export const BeerCards = [
       id: 8,
       name: 'bottle8',
       src: bottle8
-   }, 
+   },
+   {
+    id: 9,
+    name: 'bonus',
+    src: ''
+ }, 
+ {
+    id: 10,
+    name: 'bottle9',
+    src: bottle9
+ }, 
 ];
 
 export const SettingsButton = ['Reset', 'Save'];

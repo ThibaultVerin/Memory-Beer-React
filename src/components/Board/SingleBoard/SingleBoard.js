@@ -4,6 +4,7 @@ import { sortedBeerCards } from './ShuffleBoard';
 import SingleBeerCards from './SingleBeerCards';
 import EndGameModal from '../EndGame/EndGameModal';
 import Score from '../Score/Score';
+import Timer from '../Timer/Timer';
 
 const SingleBoard = () => {
 
@@ -14,13 +15,21 @@ const SingleBoard = () => {
     const [lockBoard, setLockBoard] = useState(false);
     const [pairCount, setPairCount] = useState(0);
 
+    const [gameFinished, setGameFinished] = useState(false);
+
+    const [switchScore, setSwitchScore] = useState(false);
+
+
     const drunkMode = false;
 
     useEffect(() => {
+        if(pairCount === (sortedBeerCards.length/2)) {
+            setGameFinished(false)
+        }
         if (!isPlayed) {
             setTimeout(() => {
                 setLockBoard(false); 
-            }, 1500);
+            }, 2000);
         }
     }, [isPlayed])
 
@@ -34,6 +43,9 @@ const SingleBoard = () => {
     const handleClick = (card) => {
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
+            if (!gameFinished) {
+                setGameFinished(true);
+            } 
         } else {
             matchingResult(card);
         }
@@ -47,19 +59,20 @@ const SingleBoard = () => {
                 setPlayerScore(0);
             } else {
                 setPlayerScore(playerScore - 20);
-            }
+            } 
         } else {
             setPlayerScore(playerScore + 100);
             setPair(true);
             setPairCount(pairCount + 1);
-            setLockBoard(false); 
+            setLockBoard(false);
         }
         setPlayerFirstChoice();
     }
 
     return (
         <div className='single-board-container'>
-        {pairCount !== (sortedBeerCards.length/2) && <Score playerScore={playerScore} />}
+        {switchScore ? <Score playerScore={playerScore} /> : <Timer gameFinished={gameFinished} />}
+            <button type='button' onClick={() => setSwitchScore(!switchScore)}></button>
             <div className={drunkMode ? 'single-board-card-container drunk' : 'single-board-card-container'}>
                 {sortedBeerCards.map((card, index) => 
                     <SingleBeerCards 

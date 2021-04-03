@@ -13,15 +13,17 @@ import { UserProvider }  from './contexts/UserContext';
 import { PlayerModeProvider }  from './contexts/PlayerModeContext';
 import { LevelProvider }  from './contexts/LevelContext';
 import { NumberPlayerProvider }  from './contexts/NumberPlayerContext';
+import { TimeProvider }  from './contexts/TimeContext';
 
 
 function App() {
 
   return (
     <UserProvider>
-      <PlayerModeProvider>
+    <PlayerModeProvider>
     <LevelProvider>
     <NumberPlayerProvider>
+    <TimeProvider>
       <Router>
         <Navbar />
           <div className="App">
@@ -37,7 +39,8 @@ function App() {
           </div>
          <Footer /> 
       </Router>
-      </NumberPlayerProvider>
+    </TimeProvider>
+    </NumberPlayerProvider>
     </LevelProvider>
     </PlayerModeProvider>
     </UserProvider>

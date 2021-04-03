@@ -1,7 +1,7 @@
 @import '../../../Variables';
 
 .single-board-card {
-    height: 22%;
+    height: 70px;
     width: 70px;
     margin:0 1.5%;
     display: flex;
@@ -32,7 +32,7 @@
 }
 
 .card-front {
-    width: 22px;
+    width: 19px;
     margin: auto;
     transform: rotateY(180deg);
     backface-visibility: visible;
@@ -40,7 +40,7 @@
 }
 
 .card-back {
-    width: 50px;
+    width: 40px;
     margin: auto;
 }
 

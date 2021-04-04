@@ -3,21 +3,26 @@ import { UserContext }  from '../../../contexts/UserContext';
 import MainButton from '../../Style/MainButton';
 import './EndGameModal.scss'
 import EndGameRanking from './EndGameRanking';
+import { TimeContext }  from '../../../contexts/TimeContext';
 
 const EndGameModal = ({ score }) => {
     
     const { setUserInfo } = useContext(UserContext);
+    const { gameTime } = useContext(TimeContext);
 
     const [showRanking, setShowRanking] = useState(false);
 
     /*eslint-disable */
     useEffect(() => {
+        console.log(gameTime)
         setUserInfo(userInfo => ({
             ...userInfo,
             score: score,
+            time: gameTime,
         }))
-    }, [])
+    }, [gameTime])
     /*eslint-enable */
+
 
     const handleClick = () => {
         setShowRanking(true)
@@ -31,7 +36,7 @@ const EndGameModal = ({ score }) => {
                 <>
                     <h1>Game Finished</h1>
                     <div className='endgame-home-text'>
-                        <p>Time : 02:25</p>
+                        <p>Time : {gameTime}</p>
                         <p>Score : {score}</p>
                         <p>Time bonus : 0</p>
                         <p>Total Score : {score}</p>

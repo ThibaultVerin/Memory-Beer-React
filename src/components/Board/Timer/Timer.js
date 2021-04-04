@@ -4,9 +4,13 @@ import { TimeContext }  from '../../../contexts/TimeContext';
 
 const Timer = ({ gameFinished }) => {
 
-    const { setGameTime } = useContext(TimeContext);
+    const { gameTime, setGameTime } = useContext(TimeContext);
 
     const [counter, setCounter] = useState(0);
+
+    useEffect(() => {
+        setCounter(0);
+    }, [])
 
     useEffect(() => {
         let id;
@@ -14,9 +18,9 @@ const Timer = ({ gameFinished }) => {
             id = setInterval(() => {
                 setCounter(counter => counter + 1);
             }, 1000);
+            setGameTime(counter)
         } else if (!gameFinished) {
             setGameTime(counter)
-            setCounter(0);
         }
         return () => clearInterval(id);
     }, [gameFinished]);

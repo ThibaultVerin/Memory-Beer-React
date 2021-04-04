@@ -24,6 +24,7 @@ const Ranking = () => {
     });
 
     console.log(sortedArray.includes(userInfo))
+    console.log(userInfo)
 
     return (
         <div className='ranking-container'>

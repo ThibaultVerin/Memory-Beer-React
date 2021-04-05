@@ -6,7 +6,7 @@ import EndGameModal from '../EndGame/EndGameModal';
 import Score from '../Score/Score';
 import Timer from '../Timer/Timer';
 
-const SingleBoard = () => {
+const SingleBoard = ({ user, multiPlayer }) => {
 
     const [playerScore, setPlayerScore] = useState(0);
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
@@ -71,7 +71,7 @@ const SingleBoard = () => {
 
     return (
         <div className='single-board-container'>
-        {switchScore ? <Score playerScore={playerScore} /> : <Timer gameFinished={gameFinished} />}
+        {switchScore ? <Score playerScore={playerScore} user={user} /> : <Timer gameFinished={gameFinished} user={user} />}
             <button type='button' onClick={() => setSwitchScore(!switchScore)}></button>
             <div className={drunkMode ? 'single-board-card-container drunk' : 'single-board-card-container'}>
                 {sortedBeerCards.map((card, index) => 

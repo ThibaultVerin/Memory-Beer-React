@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { TimeContext }  from '../../../contexts/TimeContext';
 
 
-const Timer = ({ gameFinished }) => {
+const Timer = ({ gameFinished, user }) => {
 
     const { gameTime, setGameTime } = useContext(TimeContext);
 
@@ -27,7 +27,7 @@ const Timer = ({ gameFinished }) => {
     
     return (
         <>
-            <h1>Time: {counter}</h1>
+            <h1>: {counter}</h1>
         </>
     )
 }

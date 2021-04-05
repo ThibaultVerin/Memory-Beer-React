@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
-import { UserContext }  from '../../../contexts/UserContext';
+import React from 'react';
 import './Score.scss';
 
-const Score = ({ playerScore }) => {
-
-    const { userInfo } = useContext(UserContext);
+const Score = ({ playerScore, user }) => {
 
     return (
         <div className='score-container'>
-            <h1>{userInfo.name} : {playerScore}</h1>
+            <h1>{user.name} : {playerScore}</h1>
         </div>
     )
 }

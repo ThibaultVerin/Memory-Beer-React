@@ -44,7 +44,7 @@ export const NumberButton = ['Back', 'Enter'];
 
  // BEER CARDS
 
-export const BeerCards = [
+export const BeerCardsArray = [
    {
       id: 1,
       name: 'bottle1',

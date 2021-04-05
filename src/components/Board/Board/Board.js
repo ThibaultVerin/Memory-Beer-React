@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Board.scss';
-import { sortedBeerCards } from './ShuffleBoard';
+import ShuffleArray, { sortedBeerCards } from './ShuffleBoard';
 import BeerCards from './BeerCards';
 import EndGameModal from '../EndGame/EndGameModal';
-import Score from '../Score/Score';
-import Timer from '../Timer/Timer';
+import BoardHeader from './BoardHeader';
 
 const Board = ({ user, multiPlayer, drunkMode }) => {
 
-    const [headerDisplay, setHeaderDisplay] = useState('score');
+
+    useEffect(() => {
+        ShuffleArray(sortedBeerCards);
+    }, []);
+
     const [gameFinished, setGameFinished] = useState(false);
     const [isPlayed, setIsPlayed] = useState(false);
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
@@ -18,7 +21,7 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
     const [pair, setPair] = useState(false);
 
     useEffect(() => {
-        if(pairCount === (sortedBeerCards.length/2)) {
+        if(pairCount === ( sortedBeerCards.length/2)) {
             setGameFinished(false)
         }
         if (!isPlayed) {
@@ -43,11 +46,11 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
             } 
         } else {
             matchingResult(card);
+            setLockBoard(true);
         }
     }
 
     const matchingResult = (card) => {
-        setLockBoard(true);
         setIsPlayed(true);
         if (playerFirstChoice !== card.id) {
             if (playerScore === 0) {
@@ -64,28 +67,16 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
         setPlayerFirstChoice();
     }
 
-    const handleheaderDisplay = () => {
-        headerDisplay === 'time' ? setHeaderDisplay('score') : setHeaderDisplay('time')
-        
-    }
 
     return (
         <>
-            <div className='board-header'>
-                <Score 
-                    playerScore={playerScore} 
-                    user={user} 
-                    className={headerDisplay}   
-                />
-                <Timer 
-                    gameFinished={gameFinished} 
-                    user={user} 
-                    className={headerDisplay} 
-                />
-                <input type='button' value={headerDisplay} onClick={() => handleheaderDisplay()} />
-            </div>
+            <BoardHeader 
+                user={user} 
+                gameFinished={gameFinished} 
+                playerScore={playerScore} 
+            />
             <div className={drunkMode ? 'board-card-container drunk' : 'board-card-container'}>
-                {sortedBeerCards.map((card, index) => 
+                { sortedBeerCards.map((card, index) => 
                     <BeerCards 
                         key ={index} 
                         card={card} 
@@ -96,7 +87,7 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
                     />
                 )}
             </div>
-            {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
+            {pairCount === ( sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
             {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
         </>
     )

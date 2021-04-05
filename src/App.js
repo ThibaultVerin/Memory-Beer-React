@@ -15,6 +15,7 @@ import { PlayerModeProvider }  from './contexts/PlayerModeContext';
 import { LevelProvider }  from './contexts/LevelContext';
 import { NumberPlayerProvider }  from './contexts/NumberPlayerContext';
 import { TimeProvider }  from './contexts/TimeContext';
+import { ActualPlayerProvider } from './contexts/ActualPlayerContext';
 
 
 function App() {
@@ -25,22 +26,24 @@ function App() {
         <LevelProvider>
           <NumberPlayerProvider>
             <TimeProvider>
-              <Router>
-                <Navbar />
-                  <div className="App">
-                    <Switch>
-                      <Route exact path='/' component={Home} />
-                      <Route exact path='/single-player' component={PlayerInfo} />
-                      <Route exact path='/single-board' component={SingleBoard} />
-                      <Route exact path='/multi-player' component={MultiplayerNumber} />
-                      <Route exact path='/multi-board' component={MultiBoard} />
-                      <Route exact path='/select-level' component={LevelSelection} />
-                      <Route exact path ='/ranking' component={Ranking} />
-                      <Route exact path ='/settings' component={Settings} />
-                    </Switch>
-                  </div>
-                <Footer /> 
-              </Router>
+              <ActualPlayerProvider>
+                <Router>
+                  <Navbar />
+                    <div className="App">
+                      <Switch>
+                        <Route exact path='/' component={Home} />
+                        <Route exact path='/single-player' component={PlayerInfo} />
+                        <Route exact path='/single-board' component={SingleBoard} />
+                        <Route exact path='/multi-player' component={MultiplayerNumber} />
+                        <Route exact path='/multi-board' component={MultiBoard} />
+                        <Route exact path='/select-level' component={LevelSelection} />
+                        <Route exact path ='/ranking' component={Ranking} />
+                        <Route exact path ='/settings' component={Settings} />
+                      </Switch>
+                    </div>
+                  <Footer /> 
+                </Router>
+              </ActualPlayerProvider>
             </TimeProvider>
           </NumberPlayerProvider>
         </LevelProvider>

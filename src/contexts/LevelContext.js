@@ -6,7 +6,7 @@ export const LevelProvider = ({ children }) => {
     const [levelSelected, setLevelSelected ] = useState();
 
     return (
-        <LevelContext.Provider value={{levelSelected, setLevelSelected }}>
+        <LevelContext.Provider value={{ levelSelected, setLevelSelected }}>
             {children}
         </LevelContext.Provider>
     )

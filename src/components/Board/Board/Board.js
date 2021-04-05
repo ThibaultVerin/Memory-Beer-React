@@ -1,48 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Board.scss';
 import ShuffleArray, { sortedBeerCards } from './ShuffleBoard';
 import BeerCards from './BeerCards';
 import EndGameModal from '../EndGame/EndGameModal';
 import BoardHeader from './BoardHeader';
+import { ActualPlayerContext }  from '../../../contexts/ActualPlayerContext';
+import { NumberPlayerContext }  from '../../../contexts/NumberPlayerContext';
 
-const Board = ({ user, multiPlayer, drunkMode }) => {
+const Board = ({ user, multiplayer, drunkMode }) => {
+
+    const { actualPlayer, setActualPlayer } = useContext(ActualPlayerContext);
+    const { numberPlayer } = useContext(NumberPlayerContext);
+
+    const [gameStarting, setGameStarting] = useState(false);
+    const [playerFirstChoice, setPlayerFirstChoice] = useState();
+    const [lockBoard, setLockBoard] = useState(false);
 
 
+    const [isRoundFinished, setIsRoundFinished] = useState(false);
+    const [pairCount, setPairCount] = useState(0);
+    const [pair, setPair] = useState(false);
+
+    const [playerScore, setPlayerScore] = useState(0);
+
+    // Shuffle Array for every new board when the component is mounted.
     useEffect(() => {
         ShuffleArray(sortedBeerCards);
     }, []);
 
-    const [gameFinished, setGameFinished] = useState(false);
-    const [isPlayed, setIsPlayed] = useState(false);
-    const [playerFirstChoice, setPlayerFirstChoice] = useState();
-    const [pairCount, setPairCount] = useState(0);
-    const [lockBoard, setLockBoard] = useState(false);
-    const [playerScore, setPlayerScore] = useState(0);
-    const [pair, setPair] = useState(false);
-
+    // Each time the round is finished we check if the game if finished else we unlock the board.
     useEffect(() => {
         if(pairCount === ( sortedBeerCards.length/2)) {
-            setGameFinished(false)
+            setTimeout(() => {
+                setGameStarting(false); 
+            }, 2000);
         }
-        if (!isPlayed) {
+        if (!isRoundFinished) {
             setTimeout(() => {
                 setLockBoard(false); 
             }, 2000);
         }
-    }, [isPlayed])
+    }, [isRoundFinished]);
 
+    // Each time the player choice is set to null, reset the par and round states to start the new round.
     useEffect(() => {
-        if (!playerFirstChoice) {
             setPair(false);
-            setIsPlayed(false);
-        }
-    }, [playerFirstChoice])
+            setIsRoundFinished(false);
+    }, [!playerFirstChoice]);
 
+
+    // useEffect(() => {
+    //     if(lockBoard === true) {
+    //         setIsRoundFinished(true);
+    //     }
+    // }, [lockBoard]);
+
+    // if playerChoice doesn't exist, set card choice. Else call matching function and lock the board.
     const handleClick = (card) => {
         if (!playerFirstChoice) {
             setPlayerFirstChoice(card.id);
-            if (!gameFinished) {
-                setGameFinished(true);
+            if (!gameStarting) {
+                setGameStarting(true);
             } 
         } else {
             matchingResult(card);
@@ -51,8 +69,13 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
     }
 
     const matchingResult = (card) => {
-        setIsPlayed(true);
+        setIsRoundFinished(true);
         if (playerFirstChoice !== card.id) {
+            if (multiplayer) {
+                setTimeout(() => {
+                    actualPlayer === numberPlayer ? setActualPlayer(1) : setActualPlayer(actualPlayer + 1);
+                }, 2000);
+            }
             if (playerScore === 0) {
                 setPlayerScore(0);
             } else {
@@ -62,7 +85,6 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
             setPlayerScore(playerScore + 100);
             setPair(true);
             setPairCount(pairCount + 1);
-            setLockBoard(false);
         }
         setPlayerFirstChoice();
     }
@@ -72,7 +94,7 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
         <>
             <BoardHeader 
                 user={user} 
-                gameFinished={gameFinished} 
+                gameStarting={gameStarting} 
                 playerScore={playerScore} 
             />
             <div className={drunkMode ? 'board-card-container drunk' : 'board-card-container'}>
@@ -81,7 +103,7 @@ const Board = ({ user, multiPlayer, drunkMode }) => {
                         key ={index} 
                         card={card} 
                         pair={pair} 
-                        isPlayed={isPlayed}
+                        isRoundFinished={isRoundFinished}
                         lockBoard={lockBoard} 
                         handleClick={handleClick} 
                     />

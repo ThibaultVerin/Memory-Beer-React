@@ -2,12 +2,12 @@ import React, { useState, useContext, useEffect } from 'react';
 import './MultiBoard.scss'
 import Board from '../Board/Board';
 import { UserContext }  from '../../../contexts/UserContext';
+import { ActualPlayerContext }  from '../../../contexts/ActualPlayerContext';
 
 const MultiBoard = () => {
 
     const { userInfo } = useContext(UserContext);
-
-    const [actualPlayer, setActualPlayer] = useState(1);
+    const { actualPlayer, setActualPlayer } = useContext(ActualPlayerContext);
 
     // const multiplayer = {userInfo.length > 1 ? true : false};
     const multiplayer = true;

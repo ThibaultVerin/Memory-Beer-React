@@ -3,7 +3,7 @@ import './BoardHeader.scss';
 import Score from '../Score/Score';
 import Timer from '../Timer/Timer';
 
-const BoardHeader = ({ user, playerScore, gameFinished }) => {
+const BoardHeader = ({ user, playerScore, gameStarting }) => {
 
     const [headerDisplay, setHeaderDisplay] = useState('score');
 
@@ -19,7 +19,7 @@ const BoardHeader = ({ user, playerScore, gameFinished }) => {
                 className={headerDisplay}   
             />
             <Timer 
-                gameFinished={gameFinished} 
+                gameStarting={gameStarting} 
                 user={user} 
                 className={headerDisplay} 
             />

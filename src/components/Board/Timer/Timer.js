@@ -3,7 +3,7 @@ import './Timer.scss'
 import { TimeContext }  from '../../../contexts/TimeContext';
 
 
-const Timer = ({ gameFinished, user, className }) => {
+const Timer = ({ gameStarting, user, className }) => {
 
     const { setGameTime } = useContext(TimeContext);
 
@@ -16,16 +16,16 @@ const Timer = ({ gameFinished, user, className }) => {
     /*eslint-disable */
     useEffect(() => {
         let id;
-        if (gameFinished) {
+        if (gameStarting === true) {
             id = setInterval(() => {
                 setCounter(counter => counter + 1);
             }, 1000);
             setGameTime(counter)
-        } else if (!gameFinished) {
+        } else if (!gameStarting) {
             setGameTime(counter)
         }
         return () => clearInterval(id);
-    }, [gameFinished]);
+    }, [gameStarting]);
     /*eslint-enable */
     
     return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './BeerCards.scss';
 import logo from '../../../data/pictures/Logo.png';
 
-const BeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
+const BeerCards = ({ card, handleClick, pair, isRoundFinished, lockBoard }) => {
 
     const [classname, setClassname] = useState('board-card');
     const [clicked, setClicked] = useState(false);
@@ -11,7 +11,7 @@ const BeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
 
     /*eslint-disable */
     useEffect (() => {
-        if (isPlayed) {
+        if (isRoundFinished) {
             setPlayed(true);
             if (pair && clicked) {
                 setMatch(true);
@@ -20,7 +20,7 @@ const BeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
             setPlayed(false);
         }
         handleClassName();
-    }, [isPlayed]);
+    }, [isRoundFinished]);
     /*eslint-enable */
 
     /*eslint-disable */

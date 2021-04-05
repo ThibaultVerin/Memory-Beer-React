@@ -1,7 +1,8 @@
 import React from 'react';
 import './Score.scss';
 
-const Score = ({ playerScore, user, className }) => {
+const Score = ({ user, className, playerScore }) => {
+
 
     return (
         <div className={`score-container-${className}`}>

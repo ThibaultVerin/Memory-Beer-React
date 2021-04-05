@@ -6,30 +6,16 @@ import EndGameModal from '../EndGame/EndGameModal';
 import Score from '../Score/Score';
 import Timer from '../Timer/Timer';
 
-const Board = ({ user, multiPlayer }) => {
+const Board = ({ user, multiPlayer, drunkMode }) => {
 
+    const [headerDisplay, setHeaderDisplay] = useState('score');
     const [gameFinished, setGameFinished] = useState(false);
     const [isPlayed, setIsPlayed] = useState(false);
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
     const [pairCount, setPairCount] = useState(0);
-
-
-    const [headerDisplay, setHeaderDisplay] = useState('score');
-
-
     const [lockBoard, setLockBoard] = useState(false);
-
-
-
-
-
     const [playerScore, setPlayerScore] = useState(0);
-
     const [pair, setPair] = useState(false);
-
-
-
-    const drunkMode = false;
 
     useEffect(() => {
         if(pairCount === (sortedBeerCards.length/2)) {
@@ -84,10 +70,18 @@ const Board = ({ user, multiPlayer }) => {
     }
 
     return (
-        <div className='board-container'>
+        <>
             <div className='board-header'>
-                <Score playerScore={playerScore} user={user} className={headerDisplay} />
-                <Timer gameFinished={gameFinished} user={user} className={headerDisplay} />
+                <Score 
+                    playerScore={playerScore} 
+                    user={user} 
+                    className={headerDisplay}   
+                />
+                <Timer 
+                    gameFinished={gameFinished} 
+                    user={user} 
+                    className={headerDisplay} 
+                />
                 <input type='button' value={headerDisplay} onClick={() => handleheaderDisplay()} />
             </div>
             <div className={drunkMode ? 'board-card-container drunk' : 'board-card-container'}>
@@ -104,7 +98,7 @@ const Board = ({ user, multiPlayer }) => {
             </div>
             {pairCount === (sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
             {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
-        </div>
+        </>
     )
 }
 

@@ -11,6 +11,7 @@ const MultiBoard = () => {
 
     // const multiplayer = {userInfo.length > 1 ? true : false};
     const multiplayer = true;
+    const drunkMode = false;
 
     return (
         <div>
@@ -18,7 +19,7 @@ const MultiBoard = () => {
         <button type='button' onClick={() => setActualPlayer(actualPlayer - 1)}> - </button>
         {userInfo.map((user) => 
             <div className={user.id === actualPlayer ? 'show-board' : 'hide-board'}>
-                <Board user={user} multiplayer={multiplayer} />
+                <Board user={user} multiplayer={multiplayer} drunkMode={drunkMode} />
             </div>
         )}
         </div>

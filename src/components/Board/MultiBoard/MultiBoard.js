@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './MultiBoard.scss'
-import SingleBoard from '../SingleBoard/SingleBoard';
+import Board from '../Board/Board';
 import { UserContext }  from '../../../contexts/UserContext';
 
 const MultiBoard = () => {
@@ -9,6 +9,7 @@ const MultiBoard = () => {
 
     const [actualPlayer, setActualPlayer] = useState(1);
 
+    // const multiplayer = {userInfo.length > 1 ? true : false};
     const multiplayer = true;
 
     return (
@@ -17,7 +18,7 @@ const MultiBoard = () => {
         <button type='button' onClick={() => setActualPlayer(actualPlayer - 1)}> - </button>
         {userInfo.map((user) => 
             <div className={user.id === actualPlayer ? 'show-board' : 'hide-board'}>
-                <SingleBoard user={user} multiplayer={multiplayer} />
+                <Board user={user} multiplayer={multiplayer} />
             </div>
         )}
         </div>

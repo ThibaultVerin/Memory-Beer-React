@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
+import './Timer.scss'
 import { TimeContext }  from '../../../contexts/TimeContext';
 
 
-const Timer = ({ gameFinished, user }) => {
+const Timer = ({ gameFinished, user, className }) => {
 
-    const { gameTime, setGameTime } = useContext(TimeContext);
+    const { setGameTime } = useContext(TimeContext);
 
     const [counter, setCounter] = useState(0);
 
@@ -12,6 +13,7 @@ const Timer = ({ gameFinished, user }) => {
         setCounter(0);
     }, [])
 
+    /*eslint-disable */
     useEffect(() => {
         let id;
         if (gameFinished) {
@@ -24,11 +26,12 @@ const Timer = ({ gameFinished, user }) => {
         }
         return () => clearInterval(id);
     }, [gameFinished]);
+    /*eslint-enable */
     
     return (
-        <>
-            <h1>: {counter}</h1>
-        </>
+        <div className={`counter-container-${className}`}>
+            <h1>{user.name}: {counter}</h1>
+        </div>
     )
 }
 

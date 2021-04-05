@@ -1,5 +1,9 @@
 @import '../../../Variables';
 
-.score-container {
+.score-container-score {
     width: 33%;
+}
+
+.score-container-time {
+    display:none;
 }

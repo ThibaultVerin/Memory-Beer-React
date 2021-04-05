@@ -1,6 +1,6 @@
 @import '../../../Variables';
 
-.single-board-card {
+.board-card {
     height: 70px;
     width: 70px;
     margin:0 1.5%;
@@ -70,19 +70,19 @@
 }
 
 @media screen and (min-width: 410px) {
-    .single-board-card {
+    .board-card {
         margin:0 2.2%;
     }
 }
 
 @media screen and (min-width: 496px) {
-    .single-board-card {
+    .board-card {
         margin:0 2.7%;
     }
 }
 
 @media screen and (min-width: 532px) {
-    .single-board-card {
+    .board-card {
         width: 80px;
         margin:0 3%;
 
@@ -97,13 +97,13 @@
 }
 
 @media screen and (min-width: 632px) {
-    .single-board-card {
+    .board-card {
         width: 85px;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .single-board-card {
+    .board-card {
         width: 100px;
     }
 }

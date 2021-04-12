@@ -20,10 +20,10 @@ const EndGameModal = ({ score }) => {
             score: score,
             time: gameTime,
         }))
-    }, [gameTime])
+    }, [])
     /*eslint-enable */
 
-
+    console.log(gameTime)
     const handleClick = () => {
         setShowRanking(true)
     }
@@ -36,7 +36,7 @@ const EndGameModal = ({ score }) => {
                 <>
                     <h1>Game Finished</h1>
                     <div className='endgame-home-text'>
-                        <p>Time : {gameTime}</p>
+                        <p>Time : {gameTime.minute} : {gameTime.second}</p>
                         <p>Score : {score}</p>
                         <p>Time bonus : 0</p>
                         <p>Total Score : {score}</p>

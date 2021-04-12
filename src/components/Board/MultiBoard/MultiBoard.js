@@ -14,7 +14,7 @@ const MultiBoard = () => {
     const drunkMode = false;
 
     return (
-        <div>
+        <div className='board-container'>
         <button type='button' onClick={() => setActualPlayer(actualPlayer + 1)}> + </button>
         <button type='button' onClick={() => setActualPlayer(actualPlayer - 1)}> - </button>
         {userInfo.map((user) => 

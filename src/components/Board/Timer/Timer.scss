@@ -1,3 +1,12 @@
 .counter-container-score {
     display: none
 }
+
+.counter-container-time {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    h1 {
+        margin: 0 15px;
+    }
+}

@@ -7,10 +7,18 @@ const Timer = ({ gameStarting, user, className }) => {
 
     const { setGameTime } = useContext(TimeContext);
 
-    const [counter, setCounter] = useState(0);
+    const [time, setTime] = useState({
+        second: '00',
+        minute: '00',
+        counter: 0
+    })
 
     useEffect(() => {
-        setCounter(0);
+        setTime({
+            second: '00',
+            minute: '00',
+            counter: 0
+        });
     }, [])
 
     /*eslint-disable */
@@ -18,19 +26,30 @@ const Timer = ({ gameStarting, user, className }) => {
         let id;
         if (gameStarting === true) {
             id = setInterval(() => {
-                setCounter(counter => counter + 1);
+                const secondCounter = time.counter % 60;
+                const minuteCounter = Math.floor(time.counter / 60);
+        
+                const computedSecond = String(secondCounter).length === 1 ? `0${secondCounter}`: secondCounter;
+                const computedMinute = String(minuteCounter).length === 1 ? `0${minuteCounter}`: minuteCounter;
+                
+                setTime(prevState => ({ 
+                    second: computedSecond,
+                    minute: computedMinute,
+                    counter: prevState.counter + 1
+                }))
             }, 1000);
-            setGameTime(counter)
+            setGameTime(time)
         } else if (!gameStarting) {
-            setGameTime(counter)
+            setGameTime(time)
         }
         return () => clearInterval(id);
-    }, [gameStarting]);
+    }, [gameStarting, time]);
     /*eslint-enable */
     
     return (
         <div className={`counter-container-${className}`}>
-            <h1>{user.name}: {counter}</h1>
+            <h1>{user.name} :</h1>
+            <h1>{time.minute} : {time.second}</h1>
         </div>
     )
 }

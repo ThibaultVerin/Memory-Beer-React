@@ -46,7 +46,7 @@ const Ranking = () => {
                             <td>{index + 1}</td>
                             <td>{user.name}</td>
                             <td>{user.score}</td>
-                            <td>{user.time}</td>
+                            <td>{user.time.minute}:{user.time.second}</td>
                         </tr>
                     )}
                 </tbody>

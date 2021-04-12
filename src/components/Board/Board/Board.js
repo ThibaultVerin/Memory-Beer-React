@@ -6,6 +6,7 @@ import EndGameModal from '../EndGame/EndGameModal';
 import BoardHeader from './BoardHeader';
 import { ActualPlayerContext }  from '../../../contexts/ActualPlayerContext';
 import { NumberPlayerContext }  from '../../../contexts/NumberPlayerContext';
+import NextPlayerModal from './NextPlayerModal';
 
 const Board = ({ user, multiplayer, drunkMode }) => {
 
@@ -15,6 +16,8 @@ const Board = ({ user, multiplayer, drunkMode }) => {
     const [gameStarting, setGameStarting] = useState(false);
     const [playerFirstChoice, setPlayerFirstChoice] = useState();
     const [lockBoard, setLockBoard] = useState(false);
+
+    const [nextPlayerModalOpen, setNextPlayerModalOpen] = useState(false)
 
 
     const [isRoundFinished, setIsRoundFinished] = useState(false);
@@ -30,10 +33,8 @@ const Board = ({ user, multiplayer, drunkMode }) => {
 
     // Each time the round is finished we check if the game if finished else we unlock the board.
     useEffect(() => {
-        if(pairCount === ( sortedBeerCards.length/2)) {
-            setTimeout(() => {
+        if(pairCount === 2) {
                 setGameStarting(false); 
-            }, 2000);
         }
         if (!isRoundFinished) {
             setTimeout(() => {
@@ -72,8 +73,10 @@ const Board = ({ user, multiplayer, drunkMode }) => {
         setIsRoundFinished(true);
         if (playerFirstChoice !== card.id) {
             if (multiplayer) {
+                setNextPlayerModalOpen(true);
                 setTimeout(() => {
                     actualPlayer === numberPlayer ? setActualPlayer(1) : setActualPlayer(actualPlayer + 1);
+                    setNextPlayerModalOpen(false);
                 }, 2000);
             }
             if (playerScore === 0) {
@@ -87,6 +90,7 @@ const Board = ({ user, multiplayer, drunkMode }) => {
             setPairCount(pairCount + 1);
         }
         setPlayerFirstChoice();
+        setNextPlayerModalOpen(false);
     }
 
 
@@ -97,6 +101,7 @@ const Board = ({ user, multiplayer, drunkMode }) => {
                 gameStarting={gameStarting} 
                 playerScore={playerScore} 
             />
+            <NextPlayerModal isOpen={nextPlayerModalOpen} />
             <div className={drunkMode ? 'board-card-container drunk' : 'board-card-container'}>
                 { sortedBeerCards.map((card, index) => 
                     <BeerCards 
@@ -109,7 +114,7 @@ const Board = ({ user, multiplayer, drunkMode }) => {
                     />
                 )}
             </div>
-            {pairCount === ( sortedBeerCards.length/2) && <EndGameModal score={playerScore} />}
+            {pairCount === 2 && <EndGameModal score={playerScore} />}
             {/* {pairCount === 0 && <EndGameModal score={playerScore} />} */}
         </>
     )

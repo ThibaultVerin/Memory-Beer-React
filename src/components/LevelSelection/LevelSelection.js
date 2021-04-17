@@ -6,7 +6,7 @@ import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 import { LevelInput } from '../../data/LocalData';
 
-const LevelSelection = () => {
+export const LevelSelection = () => {
 
     const history = useHistory();
 

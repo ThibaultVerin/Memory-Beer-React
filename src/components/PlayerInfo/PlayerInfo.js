@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
-import './PlayerInfo.scss';
 import { useHistory } from "react-router-dom";
+import PlayerName from '../Style/PlayerName.js';
+import { PlayerInfoContainer, PlayerInfoMode } from '../Style/StyledComponents';
 import { UserContext }  from '../../contexts/UserContext';
 import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
-import PlayerName from '../Style/PlayerName.js';
+
 
 const PlayerInfo = () => {
 
@@ -66,14 +67,14 @@ const PlayerInfo = () => {
 
     return (
         
-        <div className='player-info-container'>
-            <p>{playerMode} mode | {levelSelected} mode</p>
+        <PlayerInfoContainer>
+            <PlayerInfoMode>{playerMode} | {levelSelected} mode</PlayerInfoMode>
             <PlayerName 
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
                 actualUser={actualUser} 
             />
-        </div>       
+        </PlayerInfoContainer>       
     )
 }
 

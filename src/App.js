@@ -4,7 +4,7 @@ import Home from './components/Home/Home'
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import PlayerInfo from './components/PlayerInfo/PlayerInfo';
-import MultiplayerNumber from './components/PlayerInfo/MultiplayerNumber';
+import MultiplayerNumber from './components/PlayerInfo/PlayerNumber';
 import LevelSelection from './components/LevelSelection/LevelSelection';
 import SingleBoard from './components/Board/SingleBoard/SingleBoard';
 import MultiBoard from './components/Board/MultiBoard/MultiBoard';
@@ -32,7 +32,7 @@ function App() {
                     <div className="App">
                       <Switch>
                         <Route exact path='/' component={Home} />
-                        <Route exact path='/single-player' component={PlayerInfo} />
+                        <Route exact path='/player-info' component={PlayerInfo} />
                         <Route exact path='/single-board' component={SingleBoard} />
                         <Route exact path='/multi-player' component={MultiplayerNumber} />
                         <Route exact path='/multi-board' component={MultiBoard} />

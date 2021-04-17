@@ -27,6 +27,7 @@ const PlayerInfo = () => {
     /*eslint-enable */
 
     const handleSubmitSingle = (e) => {
+        e.preventDefault();
         setUserInfo({
             id: 1, 
             name: playerName,
@@ -34,13 +35,11 @@ const PlayerInfo = () => {
             time: null,
         });
         history.push('/single-board');
-        e.preventDefault();
     }
 
     const handleSubmitMulti = (e) => {
-        if (actualUser === numberPlayer) {
-            history.push('/multi-board')
-        }
+        e.preventDefault();
+        setActualUser(actualUser + 1);
         setUserInfo((userInfo) => [
             ...userInfo,{
                 id: actualUser,
@@ -49,8 +48,10 @@ const PlayerInfo = () => {
                 time: null,
             },
         ]);
-        setActualUser(actualUser + 1);
-        e.preventDefault();
+
+        if (actualUser === numberPlayer) {
+            history.push('/multi-board')
+        }
     }
 
     const handleSubmit = (e) => {

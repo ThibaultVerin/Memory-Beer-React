@@ -55,14 +55,12 @@ const MainButton = ({ type, value, link, handleClick }) => {
 
 
     return (
-        <>
-            <Button 
-                className='main-button'
-                type={type} 
-                value={value}
-                onClick={(e) => handleEvent(e)}
-            />
-        </>
+        <Button 
+            className='main-button'
+            type={type} 
+            value={value}
+            onClick={(e) => handleEvent(e)}
+        />
     )
 }
 

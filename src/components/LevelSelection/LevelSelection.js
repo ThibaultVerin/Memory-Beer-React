@@ -22,7 +22,11 @@ export const LevelSelection = () => {
     const handleClick = (e) => {
         setLevelSelected(e.target.value);
         if (playerMode) {
-            history.push(`/${playerMode.toLowerCase()}`);
+            if (playerMode === 'Single-Player'){
+                history.push('/player-info')
+            } else {
+                history.push(`/${playerMode.toLowerCase()}`);
+            }
         } else {
             history.push('/');
             alert('Sorry the session was lost');

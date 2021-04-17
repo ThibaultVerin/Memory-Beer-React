@@ -31,19 +31,19 @@ const Board = ({ user, multiplayer, drunkMode }) => {
         ShuffleArray(sortedBeerCards);
     }, []);
 
-    // Each time the round is finished we check if the game if finished else we unlock the board.
+    // Each time the round is finished we check if the game is finished else we unlock the board.
     useEffect(() => {
         if(pairCount === 2) {
-                setGameStarting(false); 
+            setGameStarting(false); 
         }
         if (!isRoundFinished) {
             setTimeout(() => {
                 setLockBoard(false); 
-            }, 2000);
+            }, 1000);
         }
     }, [isRoundFinished]);
 
-    // Each time the player choice is set to null, reset the par and round states to start the new round.
+    // Each time the player choice is set to null, reset the pair and round states to start the new round.
     useEffect(() => {
             setPair(false);
             setIsRoundFinished(false);

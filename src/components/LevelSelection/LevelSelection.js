@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import '../Style/HomeInput.scss';
+import HomeInput from '../Style/HomeInput';
+import { HomeContainer } from '../Style/StyledComponents';
 import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 import { LevelInput } from '../../data/LocalData';
-import HomeInput from '../Style/HomeInput';
 
 const LevelSelection = () => {
 
@@ -30,7 +30,7 @@ const LevelSelection = () => {
     }
 
     return (
-        <div className='home-input'>
+        <HomeContainer>
             {LevelInput.map((button, index) =>
                 <HomeInput 
                     key={index}
@@ -39,7 +39,7 @@ const LevelSelection = () => {
                     handleClick={handleClick}            
                 />
             )}
-        </div>
+        </HomeContainer>
     )
 }
 

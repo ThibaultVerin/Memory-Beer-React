@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './SingleBeerCards.scss';
+import './BeerCards.scss';
 import logo from '../../../data/pictures/Logo.png';
 
-const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
+const BeerCards = ({ card, handleClick, pair, isRoundFinished, lockBoard }) => {
 
-    const [classname, setClassname] = useState('single-board-card close');
+    const [classname, setClassname] = useState('board-card');
     const [clicked, setClicked] = useState(false);
     const [match, setMatch] = useState(false);
     const [played, setPlayed] = useState(false);
 
     /*eslint-disable */
     useEffect (() => {
-        if (isPlayed) {
+        if (isRoundFinished) {
             setPlayed(true);
             if (pair && clicked) {
                 setMatch(true);
@@ -20,7 +20,7 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
             setPlayed(false);
         }
         handleClassName();
-    }, [isPlayed]);
+    }, [isRoundFinished]);
     /*eslint-enable */
 
     /*eslint-disable */
@@ -30,15 +30,20 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
     /*eslint-enable */
 
     const handleClassName = () => {
-        if (clicked && played){
-            setClassname('single-board-card open');
-            setClicked(false);
-        }
-        else if (clicked || match){
-            setClassname('single-board-card open');
+        if (clicked && played && !match){
+            setClassname('board-card open');
+            setTimeout(() => {
+                setClassname('board-card closing');
+                setClicked(false);
+            }, 1000);
+
+        } else if (clicked || match){
+            setClassname('board-card open');
         } else {
-            setClassname('single-board-card close');
-            setClicked(false);
+            setTimeout(() => {
+                setClassname('board-card');
+                setClicked(false);
+            }, 1000);
         }
     }
 
@@ -55,10 +60,10 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
             className={classname} 
             onClick={() => Playing()}
         >
-            <img  src={card.src} alt={card.name} id={card.id} />
-            <img  src={logo} alt ='logo' />
+            <img  className='card-front' src={card.src} alt={card.name} id={card.id} />
+            <img  className='card-back' src={logo} alt ='logo' />
         </div>
     )
 }
 
-export default SingleBeerCards;
+export default BeerCards;

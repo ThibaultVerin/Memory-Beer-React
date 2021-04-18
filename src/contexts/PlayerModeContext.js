@@ -6,7 +6,7 @@ export const PlayerModeProvider = ({ children }) => {
     const [playerMode, setPlayerMode] = useState()
 
     return (
-        <PlayerModeContext.Provider value={{playerMode, setPlayerMode}}>
+        <PlayerModeContext.Provider value={{ playerMode, setPlayerMode }}>
             {children}
         </PlayerModeContext.Provider>
     )

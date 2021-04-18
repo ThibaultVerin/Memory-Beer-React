@@ -1,7 +1,11 @@
 import React, { useContext } from 'react'
 import './PlayerName.scss';
+import styled from 'styled-components';
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
 import MainButton from './MainButton';
+
+const Button = styled.input`
+`
 
 const PlayerName = ({ handleSubmit, handleChange, actualUser }) => {
 

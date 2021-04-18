@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
-import './PlayerInfo.scss';
+import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import PlayerName from '../Style/PlayerName.js';
+import { PlayerInfoContainer, PlayerInfoMode } from '../Style/StyledComponents';
 import { UserContext }  from '../../contexts/UserContext';
 import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { LevelContext }  from '../../contexts/LevelContext';
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
-import PlayerName from '../Style/PlayerName.js';
+
 
 const PlayerInfo = () => {
 
@@ -19,23 +20,38 @@ const PlayerInfo = () => {
     const [actualUser, setActualUser] = useState(1);
     const [playerName, setPlayerName] = useState('');
 
+    /*eslint-disable */
+    useEffect(() => {
+        setUserInfo([]);
+    }, [])
+    /*eslint-enable */
+
     const handleSubmitSingle = (e) => {
-        setUserInfo({id: 1, name: playerName});
-        history.push('/single-board');
         e.preventDefault();
+        setUserInfo({
+            id: 1, 
+            name: playerName,
+            score: 0,
+            time: null,
+        });
+        history.push('/single-board');
     }
 
-    const handleSubmitMulti = () => {
-        if (actualUser === numberPlayer) {
-            history.push('/multi-board')
-        }
+    const handleSubmitMulti = (e) => {
+        e.preventDefault();
+        setActualUser(actualUser + 1);
         setUserInfo((userInfo) => [
             ...userInfo,{
                 id: actualUser,
                 name: playerName,
+                score: 0,
+                time: null,
             },
         ]);
-        setActualUser(actualUser + 1);
+
+        if (actualUser === numberPlayer) {
+            history.push('/multi-board')
+        }
     }
 
     const handleSubmit = (e) => {
@@ -52,14 +68,14 @@ const PlayerInfo = () => {
 
     return (
         
-        <div className='player-info-container'>
-            <p>{playerMode} mode | {levelSelected} mode</p>
+        <PlayerInfoContainer>
+            <PlayerInfoMode>{playerMode} | {levelSelected} mode</PlayerInfoMode>
             <PlayerName 
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
                 actualUser={actualUser} 
             />
-        </div>       
+        </PlayerInfoContainer>       
     )
 }
 

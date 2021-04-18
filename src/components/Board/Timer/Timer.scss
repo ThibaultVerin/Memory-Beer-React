@@ -1,14 +1,12 @@
-@import '../../../Variables';
+.counter-container-score {
+    display: none
+}
 
-.score-container-score {
+.counter-container-time {
     width: 80%;
     display: flex;
     justify-content: center;
     h1 {
         margin: 0 15px;
     }
-}
-
-.score-container-time {
-    display:none;
 }

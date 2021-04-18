@@ -1,8 +1,11 @@
-@import '../../../Variables';
+.hide-board {
+    display: none;
+}
 
-.board-container {
+.show-board {
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 0;
 }

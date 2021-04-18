@@ -13,7 +13,7 @@ import bottle9 from './cards/bouteille9.png';
 
 // LINKS
 
-export const NavLink = ['Home', 'Ranking', 'About', 'Settings'];
+export const NavLink = ['Home', 'Ranking', 'About', 'Settings', 'Contact'];
 
 // FOOTER
 

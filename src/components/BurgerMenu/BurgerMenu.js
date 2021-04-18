@@ -33,6 +33,9 @@ const BurgerMenu = () => {
             case 'Settings':
                 history.push('/settings');
             break;
+            case 'Contact':
+                history.push('/contact');
+            break;
             default:
         }
         handleClosing();

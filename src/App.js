@@ -8,14 +8,16 @@ import MultiplayerNumber from './components/PlayerInfo/PlayerNumber';
 import LevelSelection from './components/LevelSelection/LevelSelection';
 import SingleBoard from './components/Board/SingleBoard/SingleBoard';
 import MultiBoard from './components/Board/MultiBoard/MultiBoard';
-import Settings from './components/Settings/Settings'
-import Ranking from './components/Ranking/Ranking'
+import Settings from './components/Settings/Settings';
+import Ranking from './components/Ranking/Ranking';
+import Contact from './components/Contact';
 import { UserProvider }  from './contexts/UserContext';
 import { PlayerModeProvider }  from './contexts/PlayerModeContext';
 import { LevelProvider }  from './contexts/LevelContext';
 import { NumberPlayerProvider }  from './contexts/NumberPlayerContext';
 import { TimeProvider }  from './contexts/TimeContext';
 import { ActualPlayerProvider } from './contexts/ActualPlayerContext';
+
 
 
 function App() {
@@ -39,6 +41,7 @@ function App() {
                         <Route exact path='/select-level' component={LevelSelection} />
                         <Route exact path ='/ranking' component={Ranking} />
                         <Route exact path ='/settings' component={Settings} />
+                        <Route exact path ='/contact' component={Contact} />
                       </Switch>
                     </div>
                   <Footer /> 

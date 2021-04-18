@@ -54,7 +54,7 @@ export const NavbarBurgerContainer = styled.div`
 
     @media screen and (min-width: 768px) {
         display: block;
-        padding-right: 30px
+        padding-right: 30px;
     }
 
     @media screen and (min-width: 1024px) {
@@ -96,6 +96,48 @@ export const NavbarLinks = styled.input`
             border-bottom: 2px solid #ffffd4;
         }
     }
+`
+
+
+// ---- Footer
+
+export const FooterContainer = styled.div`
+    height: 10vh;
+    display: flex;
+    background-color: #292929;
+    box-shadow: -60px -3px #24445c;
+    border-top-left-radius: 10px;
+`
+
+export const FooterMobile = styled.input`
+    background-color: $fourth-color;
+    color:$third-color;
+    font-family: $primary-font-family;
+    font-size: 26px;
+    font-weight: bolder;
+    border: outset 5px rgba(255, 255, 255, 0.11);
+    border-top-left-radius: 10px;
+`
+
+
+// ---- Burger Menu
+
+export const BurgerMenuContainer = styled.div`
+    width: 50%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 0 #24445c;
+`
+
+export const BurgerLine = styled.div`
+    width: 45px;
+    height: 4px;
+    background-color: #ffffd4;
+    border-radius: 10px;
+    margin: 4px 0;
 `
 
 
@@ -166,34 +208,34 @@ export const PlayerNumberTitle = styled.h1`
 `
 
 export const PlayerNumberSelect = styled.select`
-        width: 80%;
-        height: 20%;
-        background-color: #292929;
-        color: #ffffd4;
-        font-family: 'Patrick Hand SC';
-        font-size: 22px;
-        border: solid 2px;
-        border-radius: 20px;
-        padding: 10px;
-        margin-top: 20px;
-        outline: none;
-        box-shadow: 0 5px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
+    width: 80%;
+    height: 20%;
+    background-color: #292929;
+    color: #ffffd4;
+    font-family: 'Patrick Hand SC';
+    font-size: 22px;
+    border: solid 2px;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    outline: none;
+    box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 
-        @media screen and (min-width: 532px) {
-            width: 350px;
-            height: 22%;
-        }
+    @media screen and (min-width: 532px) {
+        width: 350px;
+        height: 22%;
+    }
 `
 
 export const PlayerNumberButtonContainer = styled.div`
-        width: 85%;
-        display: flex;
-        justify-content: space-around;
-        margin-top: 10px;
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
 
-        @media screen and (min-width: 532px) {
-            width: 380px;
-        }
+    @media screen and (min-width: 532px) {
+        width: 380px;
+    }
 
 `

@@ -8,6 +8,7 @@ import bottle5 from './cards/bouteille5.png';
 import bottle6 from './cards/bouteille6.png';
 import bottle7 from './cards/bouteille7.png';
 import bottle8 from './cards/bouteille8.png';
+import bottle9 from './cards/bouteille9.png';
 
 
 // LINKS
@@ -43,7 +44,7 @@ export const NumberButton = ['Back', 'Enter'];
 
  // BEER CARDS
 
-export const BeerCards = [
+export const BeerCardsArray = [
    {
       id: 1,
       name: 'bottle1',
@@ -83,68 +84,68 @@ export const BeerCards = [
       id: 8,
       name: 'bottle8',
       src: bottle8
-   }, 
+   },
+   {
+    id: 9,
+    name: 'bonus',
+    src: ''
+ }, 
+ {
+    id: 10,
+    name: 'bottle9',
+    src: bottle9
+ }, 
 ];
 
 export const SettingsButton = ['Reset', 'Save'];
 
 export const RankingArray = [
    {
-       position: 1,
        name:'Guy Mauve',
        score: 780,
        time: '2:01'
    },
    {
-       position: 3,
        name:'Chen Zen',
        score: 740,
        time: '2:08'
    },
    {
-       position: 2,
        name:'Sam Soule',
        score: 760,
        time: '2:06'
    },
    {
-       position: 5,
        name:'Neta Miaou',
        score: 710,
        time: '2:15'
    },
    {
-       position: 6,
        name:'Mr Jean',
        score: 700,
        time: '2:18'
    },
    {
-       position: 4,
        name:'Noel Flantier',
        score: 720,
        time: '2:11'
    },
    {
-       position: 7,
        name:'Tobias Beecher',
        score: 680,
        time: '2:26'
    },
    {
-       position: 9,
        name:'Philly Flingo',
        score: 620,
        time: '2:41'
    },
    {
-       position: 8,
        name:'Rico',
        score: 640,
        time: '2:39'
    },
    {
-       position: 11,
        name:'Peluche',
        score: 580,
        time: '2:55'

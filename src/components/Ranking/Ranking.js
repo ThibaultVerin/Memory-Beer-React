@@ -9,27 +9,22 @@ const Ranking = () => {
 
     const [sortedArray, setSortedArray] = useState(RankingArray);
 
+    /*eslint-disable */
+    useEffect(() => {
+        setSortedArray(sortedArray => ([
+            ...sortedArray, 
+            userInfo
+        ]))
+    }, [])
+    /*eslint-enable */
 
-        /*eslint-disable */
-        useEffect(() => {
-            setSortedArray(sortedArray => ({
-                ...sortedArray, userInfo
-            }))
-        }, [])
-        /*eslint-enable */
+    sortedArray.sort(function (a, b) {
+        //return a.score - b.score;
+        return b.score - a.score;
+    });
 
-
-    // const sortByScore = sortedArray;
-
-    //     sortByScore.sort(function (a, b) {
-    //     return a.position - b.position;
-    //   });
-
-
-    //console.log(sortByScore);
-    // console.log(userInfo);
-    console.log(sortedArray);
-    console.log(sortedArray[1]);
+    console.log(sortedArray.includes(userInfo))
+    console.log(userInfo)
 
     return (
         <div className='ranking-container'>
@@ -46,12 +41,12 @@ const Ranking = () => {
                         <td>Score</td>
                         <td>Time</td>
                     </tr>
-                    {RankingArray.map((user, index) => 
-                        <tr key={index}>
-                            <td>{user.position}</td>
+                    {sortedArray.map((user, index) => 
+                        <tr key={index} className={user.name === userInfo.name ? 'user-ranking-row' : 'ranking-row'}>
+                            <td>{index + 1}</td>
                             <td>{user.name}</td>
                             <td>{user.score}</td>
-                            <td>{user.time}</td>
+                            <td>{user.time.minute}:{user.time.second}</td>
                         </tr>
                     )}
                 </tbody>

@@ -7,7 +7,7 @@ export const UserProvider = ({ children }) => {
     const [userInfo, setUserInfo] = useLocalStorage('userInfo', []);
 
     return (
-        <UserContext.Provider value={{userInfo, setUserInfo}}>
+        <UserContext.Provider value={{ userInfo, setUserInfo }}>
             {children}
         </UserContext.Provider>
     )

@@ -1,7 +1,7 @@
 @import '../../../Variables';
 
-.single-board-card {
-    height: 22%;
+.board-card {
+    height: 70px;
     width: 70px;
     margin:0 1.5%;
     display: flex;
@@ -16,12 +16,11 @@
     cursor: pointer;
     &:hover {
         transition-duration: 0.3s;
-        transform: scale(1.1);
+        //transform: scale(1.1);
     }
     &:active {
         box-shadow: 0 5px rgba(0, 0, 0, 0.2);
         transform: translateY(4px);
-        transform: scale(1.1);
     }
     img {
             object-fit: contain;
@@ -33,7 +32,7 @@
 }
 
 .card-front {
-    width: 22px;
+    width: 19px;
     margin: auto;
     transform: rotateY(180deg);
     backface-visibility: visible;
@@ -41,7 +40,7 @@
 }
 
 .card-back {
-    width: 50px;
+    width: 40px;
     margin: auto;
 }
 
@@ -71,19 +70,19 @@
 }
 
 @media screen and (min-width: 410px) {
-    .single-board-card {
+    .board-card {
         margin:0 2.2%;
     }
 }
 
 @media screen and (min-width: 496px) {
-    .single-board-card {
+    .board-card {
         margin:0 2.7%;
     }
 }
 
 @media screen and (min-width: 532px) {
-    .single-board-card {
+    .board-card {
         width: 80px;
         margin:0 3%;
 
@@ -98,13 +97,13 @@
 }
 
 @media screen and (min-width: 632px) {
-    .single-board-card {
+    .board-card {
         width: 85px;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .single-board-card {
+    .board-card {
         width: 100px;
     }
 }

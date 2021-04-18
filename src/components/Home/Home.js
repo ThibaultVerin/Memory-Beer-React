@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import '../Style/HomeInput.scss'
+import HomeInput from '../Style/HomeInput';
+import { HomeContainer } from '../Style/StyledComponents';
 import { PlayerModeContext }  from '../../contexts/PlayerModeContext';
 import { NumberPlayerContext }  from '../../contexts/NumberPlayerContext';
 import { ModeInput } from '../../data/LocalData';
-import HomeInput from '../Style/HomeInput';
+
 
 const Home = () => {
 
@@ -30,7 +31,7 @@ const Home = () => {
 
 
     return (
-        <div className='home-input'>
+        <HomeContainer>
             {ModeInput.map((button, index) =>
                 <HomeInput 
                     key={index}
@@ -39,7 +40,7 @@ const Home = () => {
                     handleClick={handleClick}            
                 />
             )}
-        </div>
+        </HomeContainer>
     )
 }
 

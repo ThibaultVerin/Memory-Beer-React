@@ -1,9 +1,17 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import './Navbar.scss';
 import logo from '../../data/pictures/Logo.png';
 import { NavLink } from '../../data/LocalData';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { 
+    NavbarContainer, 
+    NavbarTitleContainer,
+    NavbarTitle,
+    NavbarLogo,
+    NavbarBurgerContainer,
+    NavbarLinksContainer,
+    NavbarLinks
+} from '../Style/StyledComponents';
 
 const Navbar = () => {
 
@@ -29,25 +37,25 @@ const Navbar = () => {
     } 
 
     return (
-        <div className='navbar-body'>
-            <img src={logo} alt='logo' onClick={() => history.push('/')}/>
-            <div className='navbar-title'>
-                <h1 onClick={() => history.push('/')}>Memory Beer</h1>
-            </div>
-            <div className='navbar-burger'>
+        <NavbarContainer>
+            <NavbarLogo src={logo} alt='logo' onClick={() => history.push('/')}/>
+            <NavbarTitleContainer>
+                <NavbarTitle onClick={() => history.push('/')}>Memory Beer</NavbarTitle>
+            </NavbarTitleContainer>
+            <NavbarBurgerContainer>
                 <BurgerMenu />
-            </div>
-            <div className='navbar-links'>
+            </NavbarBurgerContainer>
+            <NavbarLinksContainer>
                 {NavLink.map((link, index) =>
-                    <input 
+                    <NavbarLinks 
                         key={index}
                         type='button' 
                         value={link} 
                         onClick={(e) => handleLink(e)}
                     />
                 )}
-            </div>
-        </div>
+            </NavbarLinksContainer>
+        </NavbarContainer>
     )
 }
 

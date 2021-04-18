@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import './SingleBeerCards.scss';
+import './BeerCards.scss';
 import logo from '../../../data/pictures/Logo.png';
 
-const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
+const BeerCards = ({ card, handleClick, pair, isRoundFinished, lockBoard }) => {
 
-    const [classname, setClassname] = useState('single-board-card');
+    const [classname, setClassname] = useState('board-card');
     const [clicked, setClicked] = useState(false);
     const [match, setMatch] = useState(false);
     const [played, setPlayed] = useState(false);
 
     /*eslint-disable */
     useEffect (() => {
-        if (isPlayed) {
+        if (isRoundFinished) {
             setPlayed(true);
             if (pair && clicked) {
                 setMatch(true);
@@ -20,7 +20,7 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
             setPlayed(false);
         }
         handleClassName();
-    }, [isPlayed]);
+    }, [isRoundFinished]);
     /*eslint-enable */
 
     /*eslint-disable */
@@ -31,17 +31,17 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
 
     const handleClassName = () => {
         if (clicked && played && !match){
-            setClassname('single-board-card open');
+            setClassname('board-card open');
             setTimeout(() => {
-                setClassname('single-board-card closing');
+                setClassname('board-card closing');
                 setClicked(false);
             }, 1000);
 
         } else if (clicked || match){
-            setClassname('single-board-card open');
+            setClassname('board-card open');
         } else {
             setTimeout(() => {
-                setClassname('single-board-card');
+                setClassname('board-card');
                 setClicked(false);
             }, 1000);
         }
@@ -66,4 +66,4 @@ const SingleBeerCards = ({ card, handleClick, pair, isPlayed, lockBoard }) => {
     )
 }
 
-export default SingleBeerCards;
+export default BeerCards;
